@@ -13,12 +13,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
   <main>
     <div class="candlestick-bg" aria-hidden="true">
-      <canvas id="candlestickCanvas"></canvas>
+      <div class="candle-bar green"></div>
+      <div class="candle-bar red"></div>
+      <div class="candle-bar green"></div>
+      <div class="candle-bar red"></div>
+      <div class="candle-bar green"></div>
+      <div class="candle-bar red"></div>
+      <div class="candle-bar green"></div>
+      <div class="candle-bar red"></div>
     </div>
 
     <section class="hero">
@@ -27,7 +33,7 @@
         <img src="images/profile.jpg" alt="Abhishek Bunkar" class="big-photo" loading="lazy" />
         <div class="hero-text">
           <h1>Abhishek Bunkar</h1>
-          <p class="tagline" id="typewriter">Full-time Trader | Market Analyst | Risk Manager</p>
+          <p class="tagline">Full-time Trader | Market Analyst | Risk Manager</p>
         </div>
       </div>
     </section>
@@ -35,13 +41,13 @@
     <section class="card about">
       <h2>About Me</h2>
       <p>
-        I’m a passionate trader with extensive experience in equities, crypto, and options markets.
-        My expertise lies in price action trading, risk-to-reward strategies, and mastering market psychology.
-        I combine discipline, technical precision, and data-driven analysis to navigate the markets.
+        I’m a dedicated trader with years of experience in equities, crypto, and options markets.
+        My expertise lies in price action trading, risk-to-reward strategies, and understanding market psychology.
+        I thrive on discipline, technical precision, and data-driven decisions.
       </p>
       <p>
-        My mission is to empower aspiring traders through knowledge sharing and foster a smarter trading community.
-        Let’s conquer the markets together!
+        My goal is to inspire and educate aspiring traders, building a smarter trading community.
+        Let’s navigate the markets together!
       </p>
     </section>
 
@@ -60,7 +66,7 @@
 
     <div class="contact-modal" id="contactModal" aria-hidden="true">
       <div class="modal-content">
-        <span class="modal-close">&times;</span>
+        <span class="modal-close" aria-label="Close modal">&times;</span>
         <h2>Contact Me</h2>
         <div class="contact-form">
           <input type="text" placeholder="Your Name" aria-label="Name" required />
@@ -77,38 +83,27 @@
   </footer>
 
   <script>
-    // GSAP Animations
-    gsap.from(".big-photo", { opacity: 0, scale: 0.5, duration: 1, ease: "back.out(1.7)" });
-    gsap.from(".hero-text h1", { y: 50, opacity: 0, duration: 1, delay: 0.5 });
-    gsap.from(".hero-text .tagline", { y: 50, opacity: 0, duration: 1, delay: 0.7 });
-
-    // Typewriter Effect
-    const typewriterText = document.getElementById("typewriter").textContent;
-    document.getElementById("typewriter").textContent = "";
-    let i = 0;
-    function typeWriter() {
-      if (i < typewriterText.length) {
-        document.getElementById("typewriter").textContent += typewriterText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 50);
-      }
-    }
-    setTimeout(typeWriter, 1000);
-
     // Modal Functionality
     const modal = document.getElementById("contactModal");
     const btn = document.querySelector(".contact-form-btn");
     const closeBtn = document.querySelector(".modal-close");
-    btn.onclick = () => modal.style.display = "block";
-    closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = (event) => {
-      if (event.target == modal) modal.style.display = "none";
+
+    btn.onclick = () => {
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
     };
 
-    // Candlestick Canvas Animation
-    const canvas = document.getElementById("candlestickCanvas");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+    };
 
-    function drawCand
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+    };
+  </script>
+</body>
+</html>
