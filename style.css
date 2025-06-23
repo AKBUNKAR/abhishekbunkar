@@ -189,7 +189,7 @@ h1 {
   font-weight: 600;
   text-decoration: none;
   color: #fff;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-btn.whatsapp {
@@ -223,7 +223,7 @@ h1 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 100;
+  z-index: 1000;
   align-items: center;
   justify-content: center;
 }
@@ -245,6 +245,7 @@ h1 {
 }
 
 .modal-close {
+  display: block;
   position: absolute;
   top: 10px;
   right: 15px;
@@ -265,7 +266,7 @@ h1 {
   margin: 8px 0;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: #f8fafc;
   font-size: 1rem;
 }
@@ -276,14 +277,15 @@ h1 {
 }
 
 .submit-btn {
-  background: #38bdf8;
+  background: block;
+  margin-top: 10px;
   color: #fff;
   padding: 12px 24px;
   border: none;
   border-radius: 40px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .submit-btn:hover {
@@ -297,10 +299,11 @@ footer {
   font-size: 0.9rem;
   color: #cbd5e1;
   z-index: 2;
+  position: relative;
   flex-shrink: 0;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (min-width: 768px) {
   .hero-content {
     flex-direction: row;
@@ -352,6 +355,54 @@ footer {
 /* Fallback for backdrop-filter */
 @supports not (backdrop-filter: blur(10px)) {
   .card, .modal-content {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
   }
 }
+</xai>
+
+---
+
+### How to Test
+1. **Save Files**:
+   - Save the HTML as `index.html`.
+   - Save the CSS as `style.css`.
+   - Place `profile.jpg` in an `images/` folder in the same directory as `index.html`.
+
+2. **Verify Image**:
+   - Check that `images/profile.jpg` exists and is a valid `.jpg` file.
+   - If you don’t find the image, try a placeholder:
+     ```html
+     <img src="https://via.placeholder.com/200" alt="Abhishek Bunkar" class="big-photo" loading="lazy" />
+     ```
+     If this works, the issue is with `profile.jpg`.
+
+3. **Open in Browser**:
+   - Double-click `index.html` to open it in Chrome or Firefox.
+   - If the photo doesn’t show, press `Ctrl + F5` (Windows) or `a Cmd + Shift + R` (Mac) to clear the cache.
+   - Right-click → Inspect → Console tab to check for errors.
+
+4. **Alternative Path**:
+   If the image is in the same folder as `index.html`, update the HTML:
+   ```html
+   <img src="profile.jpg" alt="Abhishek Bunkar" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200';" />
+   ```
+
+---
+
+### If It Still Doesn’t Work
+Please share:
+- Your folder structure (e.g., where is `profile.jpg` located relative to `index.html`?).
+- The exact file name and extension (e.g., `profile.jpg`, `Profile.png`).
+- Any error messages in the browser console (F12 > Console tab).
+- Whether the placeholder image (`https://via.placeholder.com/200`) shows up.
+
+I can also provide a minimal test case or suggest uploading the image to a hosting service (e.g., Imgur) for a quick fix.
+
+---
+
+### Additional Notes
+- **Instagram URL**: Update `<a href="https://www.instagram.com/yourusername/" ...>` with your actual Instagram profile (e.g., `https://www.instagram.com/abhishekbunkar/`).
+- **Contact Form**: The form is a placeholder. If you want it to send emails, let me know, and I can add EmailJS or similar.
+- **UI Feedback**: The UI is modern with glassmorphism and animations. If you want specific changes (e.g., colors, layout), tell me what you’re picturing, and I’ll customize it.
+
+Sorry again for the trouble, bro! 😔 I’m here to make this perfect. Let me know how this works or what’s still off, and I’ll nail it for you!
