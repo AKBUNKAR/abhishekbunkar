@@ -11,7 +11,7 @@ html, body {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
   color: #f8fafc;
   overflow-x: hidden;
   display: flex;
@@ -31,18 +31,50 @@ main {
   width: 100%;
   height: 100%;
   z-index: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
   opacity: 0.1;
+  pointer-events: none;
 }
 
-#candlestickCanvas {
-  width: 100%;
-  height: 100%;
+.candle-bar {
+  width: 8px;
+  height: 100px;
+  position: relative;
+  animation: flicker 2s infinite ease-in-out;
+  border-radius: 2px;
+}
+
+.candle-bar::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background-color: currentColor;
+  top: -20px;
+}
+
+.candle-bar.green {
+  background-color: #16a34a;
+}
+
+.candle-bar.red {
+  background-color: #dc2626;
+}
+
+@keyframes flicker {
+  0% { transform: scaleY(0.9) translateY(0); opacity: 0.5; }
+  50% { transform: scaleY(1.1) translateY(-5px); opacity: 0.8; }
+  100% { transform: scaleY(1) translateY(0); opacity: 0.5; }
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +88,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(16, 185, 129, 0.2));
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(16, 185, 129, 0.15));
   z-index: 1;
 }
 
@@ -64,67 +96,79 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   text-align: center;
   z-index: 2;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .big-photo {
-  width: min(25vw, 220px);
-  height: min(25vw, 220px);
+  width: min(30vw, 200px);
+  height: min(30vw, 200px);
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #38bdf8;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+  border: 4px solid #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
   transition: transform 0.3s ease;
 }
 
 .big-photo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: #f1f5f9;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: #38bdf8;
+  animation: slideIn 1s ease-out 0.5s both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Cards */
 .card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 50px;
-  margin: 40px auto;
-  max-width: 1000px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 2;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 .card h2 {
   text-align: center;
   color: #38bdf8;
-  font-size: 2rem;
-  margin-bottom: 25px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 .card p {
-  font-size: 1.1rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.8;
   text-align: center;
 }
 
@@ -132,16 +176,16 @@ h1 {
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  margin-top: 25px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .social-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px 25px;
-  border-radius: 50px;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 40px;
   font-weight: 600;
   text-decoration: none;
   color: #fff;
@@ -162,7 +206,7 @@ h1 {
 
 .social-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .social-btn:focus {
@@ -186,30 +230,41 @@ h1 {
 
 .modal-content {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 40px;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px;
   max-width: 500px;
   width: 90%;
   position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .modal-close {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 10px;
+  right: 15px;
   font-size: 1.5rem;
   cursor: pointer;
   color: #f8fafc;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #38bdf8;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 15px;
-  margin: 10px 0;
+  padding: 12px;
+  margin: 8px 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: #f8fafc;
   font-size: 1rem;
@@ -217,15 +272,15 @@ h1 {
 
 .contact-form textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 80px;
 }
 
 .submit-btn {
   background: #38bdf8;
   color: #fff;
-  padding: 15px 25px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 50px;
+  border-radius: 40px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -233,13 +288,13 @@ h1 {
 
 .submit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 footer {
   text-align: center;
-  padding: 30px;
-  font-size: 1rem;
+  padding: 20px;
+  font-size: 0.9rem;
   color: #cbd5e1;
   z-index: 2;
   flex-shrink: 0;
@@ -249,21 +304,26 @@ footer {
 @media (min-width: 768px) {
   .hero-content {
     flex-direction: row;
-    gap: 50px;
+    gap: 40px;
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
   }
 
   .tagline {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .big-photo {
+    width: min(20vw, 220px);
+    height: min(20vw, 220px);
   }
 }
 
 @media (max-width: 600px) {
   .card {
-    padding: 30px;
+    padding: 25px;
     margin: 20px;
   }
 
@@ -285,11 +345,12 @@ footer {
   }
 
   .card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
-@supports not (backdrop-filter: blur(15px)) {
+/* Fallback for backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
   .card, .modal-content {
     background: rgba(255, 255, 255, 0.15);
   }
