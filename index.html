@@ -8,16 +8,15 @@
   <meta name="author" content="Abhishek Bunkar">
   <title>Abhishek Bunkar - Trader</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <main>
+    <!-- Candlestick Background -->
     <div class="candlestick-bg" aria-hidden="true">
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
       <div class="candle-bar green"></div>
       <div class="candle-bar red"></div>
       <div class="candle-bar green"></div>
@@ -26,10 +25,12 @@
       <div class="candle-bar red"></div>
     </div>
 
+    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <img src="images/profile.jpg" alt="Abhishek Bunkar" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200';" />
+        <img src="images/profile.jpg" alt="Abhishek Bunkar" class="big-photo" loading="lazy"
+             onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
         <div class="hero-text">
           <h1>Abhishek Bunkar</h1>
           <p class="tagline">Full-time Trader | Market Analyst | Risk Manager</p>
@@ -37,32 +38,34 @@
       </div>
     </section>
 
+    <!-- About Me -->
     <section class="card about">
       <h2>About Me</h2>
       <p>
         I’m a dedicated trader with years of experience in equities, crypto, and options markets.
         My expertise lies in price action trading, risk-to-reward strategies, and understanding market psychology.
-        I thrive on discipline, technical precision, and data-driven decisions.
       </p>
       <p>
-        My goal is to inspire and educate aspiring traders, building a smarter trading community.
-        Let’s navigate the markets together!
+        I actively backtest strategies, manage trading risks for clients, and mentor new traders.
+        With a passion for simplifying market complexities, I believe in continuous learning and adaptive methods.
       </p>
     </section>
 
+    <!-- Connect Section -->
     <section class="card contact">
       <h2>Connect with Me</h2>
       <div class="social-icons">
-        <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp" aria-label="Connect with Abhishek Bunkar on WhatsApp">
+        <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp" aria-label="Connect on WhatsApp">
           <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
-        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta" aria-label="Follow Abhishek Bunkar on Instagram">
+        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta" aria-label="Follow on Instagram">
           <i class="fab fa-instagram"></i> Instagram
         </a>
         <button class="social-btn contact-form-btn" aria-label="Open contact form">Contact Me</button>
       </div>
     </section>
 
+    <!-- Contact Modal -->
     <div class="contact-modal" id="contactModal" aria-hidden="true">
       <div class="modal-content">
         <span class="modal-close" aria-label="Close modal">×</span>
@@ -82,7 +85,6 @@
   </footer>
 
   <script>
-    // Modal Functionality
     const modal = document.getElementById("contactModal");
     const btn = document.querySelector(".contact-form-btn");
     const closeBtn = document.querySelector(".modal-close");
