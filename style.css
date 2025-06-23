@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Reset & Fonts */
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +9,12 @@ body {
   font-family: 'Inter', sans-serif;
   background: #0f172a;
   color: #f8fafc;
-  position: relative;
   overflow-x: hidden;
+  position: relative;
   z-index: 1;
 }
 
+/* Realistic Candlestick Background */
 .candlestick-bg {
   position: fixed;
   top: 0;
@@ -21,37 +22,43 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
   pointer-events: none;
+  opacity: 0.15;
 }
 
-.candlestick-bg::before {
+.candle-bar {
+  width: 6px;
+  position: relative;
+  animation: flicker 2.5s infinite ease-in-out;
+  border-radius: 2px;
+}
+
+.candle-bar::before {
   content: '';
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    #16a34a 0px,
-    #16a34a 2px,
-    transparent 2px,
-    transparent 10px,
-    #dc2626 10px,
-    #dc2626 12px,
-    transparent 12px,
-    transparent 20px
-  );
-  animation: moveCandles 4s linear infinite;
-  opacity: 0.1;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: currentColor;
+  top: -20px;
+  height: 20px;
 }
 
-@keyframes moveCandles {
-  from {
-    transform: translateY(0%);
-  }
-  to {
-    transform: translateY(-100%);
-  }
+.candle-bar.green {
+  background-color: #16a34a;
+}
+
+.candle-bar.red {
+  background-color: #dc2626;
+}
+
+@keyframes flicker {
+  0% { transform: scaleY(0.8) translateY(0); opacity: 0.6; }
+  50% { transform: scaleY(1.2) translateY(-5px); opacity: 0.9; }
+  100% { transform: scaleY(1) translateY(0); opacity: 0.7; }
 }
 
 /* Hero Section */
@@ -155,4 +162,25 @@ footer {
   color: #94a3b8;
   z-index: 2;
   position: relative;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  .big-photo {
+    width: 140px;
+    height: 140px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
 }
