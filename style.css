@@ -1,96 +1,113 @@
-* {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
   background: #0f172a;
   color: #f1f5f9;
-  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px 20px;
   text-align: center;
-  position: relative;
+  padding: 40px 20px 20px;
 }
 
-.hero img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+.big-photo {
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border: 4px solid #38bdf8;
-  box-shadow: 0 0 20px #38bdf8;
-  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 5px solid #38bdf8;
+  box-shadow: 0 0 30px #38bdf8;
+  margin-bottom: 15px;
 }
 
-.hero h1 {
+h1 {
   font-size: 32px;
   color: #f8fafc;
 }
 
-.hero p {
-  font-size: 16px;
+.tagline {
   color: #38bdf8;
+  font-size: 16px;
   margin-top: 5px;
 }
 
 .card {
   background: #1e293b;
-  border-radius: 12px;
-  padding: 30px;
   margin: 30px auto;
   max-width: 800px;
+  padding: 30px;
+  border-radius: 12px;
   box-shadow: 0 0 12px #0f172a88;
+  text-align: center;
 }
 
 .card h2 {
   color: #38bdf8;
   margin-bottom: 15px;
-  text-align: center;
 }
 
 .card p {
   line-height: 1.6;
-  text-align: center;
 }
 
-.candles {
+/* Real candlestick simulation */
+.candlestick-chart {
   display: flex;
   justify-content: center;
-  align-items: end;
   gap: 10px;
-  height: 120px;
+  height: 150px;
   margin-top: 20px;
+  align-items: flex-end;
 }
 
 .candle {
-  width: 10px;
-  background-color: #38bdf8;
-  animation: flicker 1.2s infinite ease-in-out alternate;
+  width: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.candle:nth-child(1) { height: 40px; animation-delay: 0s; }
-.candle:nth-child(2) { height: 60px; animation-delay: 0.2s; }
-.candle:nth-child(3) { height: 90px; animation-delay: 0.4s; }
-.candle:nth-child(4) { height: 70px; animation-delay: 0.6s; }
-.candle:nth-child(5) { height: 50px; animation-delay: 0.8s; }
+.candle::before, .candle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-@keyframes flicker {
-  0% { transform: scaleY(1); opacity: 0.8; }
-  100% { transform: scaleY(1.3); opacity: 1; }
+.candle::before {
+  height: calc(var(--high) - var(--low));
+  width: 2px;
+  top: calc(100% - var(--high));
+  background-color: currentColor;
+}
+
+.candle::after {
+  height: calc(var(--open) - var(--close));
+  width: 12px;
+  top: calc(100% - max(var(--open), var(--close)));
+  background-color: currentColor;
+}
+
+.candle.up {
+  color: #16a34a;
+}
+
+.candle.down {
+  color: #dc2626;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #cbd5e1;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
   margin-top: 20px;
 }
 
@@ -113,3 +130,4 @@ footer {
   border-top: 1px solid #334155;
   margin-top: 50px;
 }
+
