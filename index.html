@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abhishek Bunkar - Full-time Trader, Market Analyst, and Risk Manager specializing in equities, crypto, and options trading.">
-  <meta name="keywords" content="trader, market analyst, price action trading, risk management, equities, crypto, options">
+  <meta name="description" content="Abhishek Bunkar - Full-time Trader, Market Analyst, and Risk Manager">
   <meta name="author" content="Abhishek Bunkar">
   <title>Abhishek Bunkar - Trader</title>
   <link rel="stylesheet" href="style.css" />
@@ -20,10 +19,6 @@
       <div class="candle-bar red"></div>
       <div class="candle-bar green"></div>
       <div class="candle-bar red"></div>
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
     </div>
 
     <section class="hero">
@@ -34,7 +29,7 @@
           alt="Abhishek Bunkar"
           class="big-photo"
           loading="lazy"
-          onerror="this.src='https://via.placeholder.com/200?text=Image+Not+Found';"
+          onerror="this.src='https://via.placeholder.com/200?text=No+Image';"
         />
         <div class="hero-text">
           <h1>Abhishek Bunkar</h1>
@@ -47,37 +42,35 @@
       <h2>About Me</h2>
       <p>
         I’m a dedicated trader with years of experience in equities, crypto, and options markets.
-        My expertise lies in price action trading, risk-to-reward strategies, and understanding market psychology.
-        I thrive on discipline, technical precision, and data-driven decisions.
+        My expertise lies in price action trading, risk-to-reward strategies, and market psychology.
       </p>
       <p>
-        My goal is to inspire and educate aspiring traders, building a smarter trading community.
-        Let’s navigate the markets together!
+        My goal is to inspire and educate aspiring traders. Let’s navigate the markets together!
       </p>
     </section>
 
     <section class="card contact">
       <h2>Connect with Me</h2>
       <div class="social-icons">
-        <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp" aria-label="Connect on WhatsApp">
+        <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp">
           <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
-        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta" aria-label="Instagram">
+        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta">
           <i class="fab fa-instagram"></i> Instagram
         </a>
-        <button class="social-btn contact-form-btn" aria-label="Open contact form">Contact Me</button>
+        <button class="social-btn contact-form-btn">Contact Me</button>
       </div>
     </section>
 
     <div class="contact-modal" id="contactModal" aria-hidden="true">
       <div class="modal-content">
-        <span class="modal-close" aria-label="Close modal">×</span>
+        <span class="modal-close">×</span>
         <h2>Contact Me</h2>
         <div class="contact-form">
-          <input type="text" placeholder="Your Name" aria-label="Name" required />
-          <input type="email" placeholder="Your Email" aria-label="Email" required />
-          <textarea placeholder="Your Message" aria-label="Message" required></textarea>
-          <button type="submit" class="submit-btn">Send Message</button>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button class="submit-btn">Send Message</button>
         </div>
       </div>
     </div>
@@ -88,7 +81,6 @@
   </footer>
 
   <script>
-    // Modal Functionality
     const modal = document.getElementById("contactModal");
     const btn = document.querySelector(".contact-form-btn");
     const closeBtn = document.querySelector(".modal-close");
@@ -103,8 +95,8 @@
       modal.setAttribute("aria-hidden", "true");
     };
 
-    window.onclick = (event) => {
-      if (event.target == modal) {
+    window.onclick = (e) => {
+      if (e.target == modal) {
         modal.style.display = "none";
         modal.setAttribute("aria-hidden", "true");
       }
