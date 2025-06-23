@@ -3,62 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abhishek Bunkar - Full-time Trader, Market Analyst, and Risk Manager specializing in equities, crypto, and options trading.">
+  <meta name="keywords" content="trader, market analyst, price action trading, risk management, equities, crypto, options">
+  <meta name="author" content="Abhishek Bunkar">
   <title>Abhishek Bunkar - Trader</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
-  <div class="candlestick-bg">
-    <div class="candle-bar green"></div>
-    <div class="candle-bar red"></div>
-    <div class="candle-bar green"></div>
-    <div class="candle-bar red"></div>
-    <div class="candle-bar green"></div>
-    <div class="candle-bar red"></div>
-    <div class="candle-bar green"></div>
-    <div class="candle-bar red"></div>
-  </div>
+  <main>
+    <div class="candlestick-bg" aria-hidden="true">
+      <canvas id="candlestickCanvas"></canvas>
+    </div>
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="profile.jpg" alt="Abhishek Bunkar" class="big-photo" />
-      <div>
-        <h1>Abhishek Bunkar</h1>
-        <p class="tagline">Full-time Trader | Market Analyst | Risk Manager</p>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <img src="images/profile.jpg" alt="Abhishek Bunkar" class="big-photo" loading="lazy" />
+        <div class="hero-text">
+          <h1>Abhishek Bunkar</h1>
+          <p class="tagline" id="typewriter">Full-time Trader | Market Analyst | Risk Manager</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card about">
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate trader with extensive experience in equities, crypto, and options markets.
+        My expertise lies in price action trading, risk-to-reward strategies, and mastering market psychology.
+        I combine discipline, technical precision, and data-driven analysis to navigate the markets.
+      </p>
+      <p>
+        My mission is to empower aspiring traders through knowledge sharing and foster a smarter trading community.
+        Let’s conquer the markets together!
+      </p>
+    </section>
+
+    <section class="card contact">
+      <h2>Connect with Me</h2>
+      <div class="social-icons">
+        <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp" aria-label="Connect with Abhishek Bunkar on WhatsApp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta" aria-label="Follow Abhishek Bunkar on Instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <button class="social-btn contact-form-btn" aria-label="Open contact form">Contact Me</button>
+      </div>
+    </section>
+
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Contact Me</h2>
+        <div class="contact-form">
+          <input type="text" placeholder="Your Name" aria-label="Name" required />
+          <input type="email" placeholder="Your Email" aria-label="Email" required />
+          <textarea placeholder="Your Message" aria-label="Message" required></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="card about">
-    <h2>About Me</h2>
-    <p>
-      I am a full-time trader with years of hands-on experience in equities, crypto, and options markets.
-      I specialize in price action trading, risk-to-reward strategies, and market psychology.
-      My approach combines discipline, technical precision, and data-backed analysis.
-    </p>
-    <p>
-      I believe in continuous learning and adapting to market behavior. Through my work, I aim to share knowledge,
-      inspire new traders, and contribute to a more informed trading community.
-    </p>
-  </section>
-
-  <section class="card contact">
-    <h2>Connect with Me</h2>
-    <div class="social-icons">
-      <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-      <a href="https://www.instagram.com/?__pwa=1" target="_blank" class="social-btn insta">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-    </div>
-  </section>
+  </main>
 
   <footer>
     <p>© 2025 Abhishek Bunkar. All rights reserved.</p>
   </footer>
-</body>
-</html>
+
+  <script>
+    // GSAP Animations
+    gsap.from(".big-photo", { opacity: 0, scale: 0.5, duration: 1, ease: "back.out(1.7)" });
+    gsap.from(".hero-text h1", { y: 50, opacity: 0, duration: 1, delay: 0.5 });
+    gsap.from(".hero-text .tagline", { y: 50, opacity: 0, duration: 1, delay: 0.7 });
+
+    // Typewriter Effect
+    const typewriterText = document.getElementById("typewriter").textContent;
+    document.getElementById("typewriter").textContent = "";
+    let i = 0;
+    function typeWriter() {
+      if (i < typewriterText.length) {
+        document.getElementById("typewriter").textContent += typewriterText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    setTimeout(typeWriter, 1000);
+
+    // Modal Functionality
+    const modal = document.getElementById("contactModal");
+    const btn = document.querySelector(".contact-form-btn");
+    const closeBtn = document.querySelector(".modal-close");
+    btn.onclick = () => modal.style.display = "block";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (event) => {
+      if (event.target == modal) modal.style.display = "none";
+    };
+
+    // Candlestick Canvas Animation
+    const canvas = document.getElementById("candlestickCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    function drawCand
