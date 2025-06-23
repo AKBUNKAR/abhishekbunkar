@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abhishek Bunkar - Trader</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="candlestick-bg">
+    <!-- animated background candles will appear via CSS -->
+  </div>
+
   <section class="hero">
     <div class="hero-content">
       <img src="profile.jpg" alt="Abhishek Bunkar" class="big-photo" />
@@ -21,29 +28,19 @@
   <section class="card about">
     <h2>About Me</h2>
     <p>
-      I am a dedicated professional trader with expertise in both technical and fundamental market analysis. I aim to deliver consistent performance and disciplined risk management in every trade. My passion lies in learning, adapting, and sharing valuable market insights.
+      I am a dedicated professional trader with expertise in both technical and fundamental market analysis. I aim to deliver consistent performance and disciplined risk management in every trade.
     </p>
-  </section>
-
-  <section class="card">
-    <h2>Live Market Candlestick Demo</h2>
-    <div class="candlestick-chart">
-      <div class="candle up" style="--high: 80%; --low: 30%; --open: 50%; --close: 70%;"></div>
-      <div class="candle down" style="--high: 75%; --low: 35%; --open: 65%; --close: 45%;"></div>
-      <div class="candle up" style="--high: 90%; --low: 40%; --open: 55%; --close: 85%;"></div>
-      <div class="candle down" style="--high: 80%; --low: 20%; --open: 70%; --close: 25%;"></div>
-      <div class="candle up" style="--high: 85%; --low: 50%; --open: 60%; --close: 80%;"></div>
-      <div class="candle down" style="--high: 70%; --low: 25%; --open: 60%; --close: 35%;"></div>
-      <div class="candle up" style="--high: 88%; --low: 45%; --open: 55%; --close: 75%;"></div>
-    </div>
-    <p class="note">* Chart is for visual demonstration only</p>
   </section>
 
   <section class="card contact">
     <h2>Connect with Me</h2>
     <div class="social-icons">
-      <a href="https://wa.me/7828350550" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/?__pwa=1" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/?__pwa=1" target="_blank" class="social-btn insta">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
     </div>
   </section>
 
@@ -52,4 +49,3 @@
   </footer>
 </body>
 </html>
-
