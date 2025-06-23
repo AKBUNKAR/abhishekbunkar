@@ -1,14 +1,12 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
 }
-
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg, #0f172a, #1e293b);
@@ -16,20 +14,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
 }
+main { flex: 1; }
 
-main {
-  flex: 1;
-}
-
-/* Candlestick Animation */
+/* Candlestick BG */
 .candlestick-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 0;
   display: flex;
   align-items: flex-end;
@@ -37,7 +29,6 @@ main {
   opacity: 0.1;
   pointer-events: none;
 }
-
 .candle-bar {
   width: 8px;
   height: 100px;
@@ -45,7 +36,6 @@ main {
   animation: flicker 2s infinite ease-in-out;
   position: relative;
 }
-
 .candle-bar::before {
   content: '';
   position: absolute;
@@ -56,7 +46,6 @@ main {
   background: currentColor;
   top: -20px;
 }
-
 .candle-bar.green { background-color: #16a34a; }
 .candle-bar.red { background-color: #dc2626; }
 
@@ -75,18 +64,15 @@ main {
   position: relative;
   z-index: 1;
   padding: 40px 20px;
-  text-align: center;
 }
-
 .hero-overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(16, 185, 129, 0.15));
+  background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(16,185,129,0.15));
   z-index: 1;
 }
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -95,70 +81,56 @@ main {
   align-items: center;
   animation: fadeIn 1s ease-out;
 }
-
 .big-photo {
-  width: min(30vw, 200px);
-  height: min(30vw, 200px);
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  border: 4px solid #38bdf8;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
   object-fit: cover;
-  animation: photoBounceIn 1.2s ease-out;
+  border: 4px solid #38bdf8;
+  box-shadow: 0 0 20px rgba(56,189,248,0.5);
+  animation: bounceIn 1.2s ease-out;
   transition: transform 0.3s ease;
 }
-
 .big-photo:hover {
   transform: scale(1.1);
 }
-
-.hero-text h1 {
-  font-size: 2.8rem;
+h1 {
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #f1f5f9;
   margin-top: 20px;
-  animation: titlePopIn 1s ease-out 0.5s both;
+  color: #f1f5f9;
 }
-
 .tagline {
   font-size: 1.2rem;
   color: #38bdf8;
   margin-top: 10px;
-  animation: titlePopIn 1s ease-out 0.7s both;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes photoBounceIn {
+@keyframes bounceIn {
   0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
   60% { transform: scale(1.1) rotate(5deg); opacity: 1; }
   100% { transform: scale(1) rotate(0); }
 }
 
-@keyframes titlePopIn {
-  from { opacity: 0; transform: translateY(20px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 /* Cards */
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 40px;
   margin: 30px auto;
   max-width: 900px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
-
 .card h2 {
   text-align: center;
   color: #38bdf8;
   margin-bottom: 20px;
 }
-
 .card p {
   text-align: center;
   font-size: 1rem;
@@ -169,10 +141,8 @@ main {
 .social-icons {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 15px;
 }
-
 .social-btn {
   display: inline-flex;
   align-items: center;
@@ -184,13 +154,11 @@ main {
   text-decoration: none;
   transition: 0.3s ease;
 }
-
 .social-btn.whatsapp { background: #25D366; }
 .social-btn.insta {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 .social-btn.contact-form-btn { background: #38bdf8; }
-
 .social-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -207,26 +175,21 @@ main {
   align-items: center;
   z-index: 100;
 }
-
 .modal-content {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 30px;
-  max-width: 500px;
   width: 90%;
-  animation: fadeIn 0.3s ease-out;
+  max-width: 500px;
 }
-
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 10px; right: 15px;
   font-size: 1.5rem;
   color: #f8fafc;
   cursor: pointer;
 }
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -237,15 +200,14 @@ main {
   border-radius: 8px;
   color: #fff;
 }
-
 .submit-btn {
   padding: 12px 24px;
   background: #38bdf8;
   color: #fff;
   border: none;
   border-radius: 40px;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* Footer */
