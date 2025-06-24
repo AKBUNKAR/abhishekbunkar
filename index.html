@@ -80,20 +80,15 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Dynamic Email Client for Floating Contact Button
+    // Ensure mailto link for Floating Contact Button
     const contactLink = document.getElementById("contactLink");
     const email = "aveebunkar.22@gmail.com";
     const subject = "Trader Inquiry";
     const body = "Hello Abhishek, I would like to connect with you.";
     const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Set mailto link for all devices, prioritizing native mail apps
+    // Set mailto link for all devices
     contactLink.href = mailtoLink;
-
-    // For Android, attempt to open Gmail app if available
-    if (/android/i.test(navigator.userAgent)) {
-      contactLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
   </script>
 </body>
 </html>
