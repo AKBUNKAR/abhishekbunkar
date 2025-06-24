@@ -37,14 +37,14 @@ main {
 .profile-image {
   margin-right: 30px;
   opacity: 0;
-  animation: slideInLeft 0.8s forwards ease-out;
+  animation: rotateIn 1s forwards ease-out;
   animation-delay: 0.3s;
 }
 
 .profile-text {
   text-align: center;
   opacity: 0;
-  animation: slideInRight 0.8s forwards ease-out;
+  animation: scaleIn 0.8s forwards ease-out;
   animation-delay: 0.5s;
 }
 
@@ -64,25 +64,25 @@ main {
   }
 }
 
-@keyframes slideInLeft {
+@keyframes rotateIn {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: rotate(15deg) scale(0.8);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: rotate(0deg) scale(1);
   }
 }
 
-@keyframes slideInRight {
+@keyframes scaleIn {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
   }
 }
 
@@ -264,59 +264,7 @@ footer {
   font-size: 1.2rem;
   cursor: pointer;
   z-index: 150;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards ease-out;
-  animation-delay: 1.3s;
-}
-
-#scrollToTop:hover {
-  transform: scale(1.1);
-}
-
-.floating-contact {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  z-index: 150;
-  transition: transform 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards ease-out;
-  animation-delay: 1.5s;
-}
-
-.floating-contact img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.floating-contact:hover {
-  transform: scale(1.1);
-}
-
-/* Responsive Fixes for Mobile */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .profile-image {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-  .card {
-    padding: 20px;
-    max-width: 92%;
-  }
-  .social-icons {
-    flex-direction: column; /* Stack buttons vertically */
+  box-shadow:  column; /* Stack buttons vertically */
     align-items: center; /* Center buttons */
     gap: 12px; /* Slightly smaller gap for mobile */
   }
