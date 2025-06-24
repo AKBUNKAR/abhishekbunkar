@@ -275,7 +275,6 @@ footer {
   transform: scale(1.1);
 }
 
-/* Floating Contact Button */
 .floating-contact {
   position: fixed;
   bottom: 20px;
@@ -285,6 +284,7 @@ footer {
   padding: 0;
   cursor: pointer;
   z-index: 150;
+  transition: transform 0.3s ease;
   opacity: 0;
   animation: fadeIn 0.5s forwards ease-out;
   animation-delay: 1.5s;
@@ -326,8 +326,8 @@ footer {
     width: 180px; /* Slightly smaller width for mobile */
   }
   .floating-contact {
-    bottom: 15px;
     right: 15px;
+    bottom: 15px;
   }
   .floating-contact img {
     width: 50px;
