@@ -235,24 +235,25 @@ footer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: transparent;
+  background: transparent; /* since we’re using an image */
   border: none;
-  border-radius: 50%;
   padding: 0;
-  width: 64px;
-  height: 64px;
   cursor: pointer;
   z-index: 150;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
-  background-image: url('https://i.ibb.co/8DDjchxh/Daco-5692126.png');
-  background-size: cover;
-  background-position: center;
+}
+
+.floating-contact img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .floating-contact:hover {
   transform: scale(1.1);
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
