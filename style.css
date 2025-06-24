@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html, body {
@@ -14,6 +15,12 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  animation: fadeInBody 1.2s ease-in;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 main {
@@ -29,6 +36,7 @@ main {
   padding: 20px;
   background: rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .profile-image {
@@ -184,7 +192,7 @@ h1 {
 }
 
 .social-btn.fb {
-  background: #1877f2;
+  background: #3b5998;
 }
 
 /* Footer */
@@ -199,7 +207,7 @@ footer {
 /* Scroll to Top Button */
 #scrollToTop {
   position: fixed;
-  bottom: 80px;
+  bottom: 90px;
   right: 20px;
   display: none;
   background: #38bdf8;
@@ -226,16 +234,31 @@ footer {
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 14px;
-  font-size: 1.2rem;
+  padding: 18px;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 150;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .floating-contact:hover {
   transform: scale(1.1);
+}
+
+.floating-contact::after {
+  content: "Contact Me";
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  font-size: 0.8rem;
+  background: transparent;
+  color: #cbd5e1;
+  text-align: center;
+  width: 100px;
 }
 
 /* Responsive */
