@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abhishek Bunkar - Expert Full-time Trader, Market Analyst, and Risk Manager offering insights on equities, crypto, and options trading." />
-  <meta name="keywords" content="Abhishek Bunkar, Trader, Market Analyst, Risk Manager, Trading Tips, Price Action Trading, Crypto Trading" />
+  <meta name="description" content="Abhishek Bunkar - Expert Full-time Trader and Option Chain Analyst offering insights on Indian stock market trading." />
+  <meta name="keywords" content="Abhishek Bunkar, Trader, Option Chain Analysis, Indian Stock Market, Trading Tips" />
   <meta name="author" content="Abhishek Bunkar" />
-  <title>Abhishek Bunkar - Top Trader & Market Analyst</title>
+  <title>Abhishek Bunkar - Top Trader & Option Analyst</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     </div>
     <div class="profile-text">
       <h1>Abhishek Bunkar</h1>
-      <p class="tagline">Full-time Trader | Market Analyst | Risk Manager</p>
+      <p class="tagline">Full-time Trader | Option Chain Analyst</p>
     </div>
   </header>
 
@@ -35,27 +35,17 @@
     <section class="card about" id="about">
       <h2>About Me</h2>
       <p>
-        I’m a dedicated full-time trader with over 5 years of experience in equities, cryptocurrency, and options markets. My expertise lies in price action trading, risk-to-reward strategies, and understanding market psychology to make informed decisions. I’ve successfully navigated volatile markets and built a strong track record.
+        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
       </p>
       <p>
-        My goal is to inspire and educate aspiring traders with practical tips and strategies. Let’s navigate the markets together! Check out my <a href="#trades">recent trades</a> for insights.
+        Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
       </p>
-    </section>
-
-    <section class="card trades" id="trades">
-      <h2>Recent Trades</h2>
-      <ul>
-        <li>Long BTC/USD +8.5% Profit, June 15, 2025</li>
-        <li>Short TSLA -2.3% Loss, June 10, 2025</li>
-        <li>Call Option AAPL +12.2% Profit, June 5, 2025</li>
-      </ul>
-      <p>Learn more about my trading approach in the <a href="#about">About Me</a> section.</p>
     </section>
 
     <section class="card contact">
       <h2>Connect with Me</h2>
       <div class="social-icons">
-        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta">
+        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta">
           <i class="fab fa-instagram"></i> Instagram
         </a>
         <button class="social-btn contact-form-btn">Contact Me</button>
@@ -67,9 +57,9 @@
         <span class="modal-close">×</span>
         <h2>Contact Me</h2>
         <div class="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" required></textarea>
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+          <textarea id="message" placeholder="Your Message" required></textarea>
           <button class="submit-btn">Send Message</button>
         </div>
       </div>
@@ -84,6 +74,7 @@
     const modal = document.getElementById("contactModal");
     const btn = document.querySelector(".contact-form-btn");
     const closeBtn = document.querySelector(".modal-close");
+    const form = document.querySelector(".contact-form");
 
     btn.onclick = () => {
       modal.style.display = "flex";
@@ -101,6 +92,18 @@
         modal.setAttribute("aria-hidden", "true");
       }
     };
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      console.log("Form Submitted:", { name, email, message });
+      alert("Message sent! Check console for details.");
+      form.reset();
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+    });
   </script>
 </body>
 </html>
