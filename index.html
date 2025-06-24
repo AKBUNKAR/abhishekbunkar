@@ -45,7 +45,7 @@
     <section class="card contact">
       <h2>Connect with Me</h2>
       <div class="social-icons">
-        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta">
+        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">
           <i class="fab fa-instagram"></i> Instagram
         </a>
         <button class="social-btn contact-form-btn">Contact Me</button>
@@ -56,12 +56,12 @@
       <div class="modal-content">
         <span class="modal-close">×</span>
         <h2>Contact Me</h2>
-        <div class="contact-form">
+        <form class="contact-form" id="contactForm">
           <input type="text" id="name" placeholder="Your Name" required />
           <input type="email" id="email" placeholder="Your Email" required />
           <textarea id="message" placeholder="Your Message" required></textarea>
-          <button class="submit-btn">Send Message</button>
-        </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
       </div>
     </div>
   </main>
@@ -74,7 +74,7 @@
     const modal = document.getElementById("contactModal");
     const btn = document.querySelector(".contact-form-btn");
     const closeBtn = document.querySelector(".modal-close");
-    const form = document.querySelector(".contact-form");
+    const form = document.getElementById("contactForm");
 
     btn.onclick = () => {
       modal.style.display = "flex";
@@ -98,11 +98,15 @@
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
-      console.log("Form Submitted:", { name, email, message });
-      alert("Message sent! Check console for details.");
-      form.reset();
-      modal.style.display = "none";
-      modal.setAttribute("aria-hidden", "true");
+      if (name && email && message) {
+        console.log("Form Submitted:", { name, email, message, time: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) });
+        alert("Message sent successfully! Check console for details (12:56 PM IST, June 24, 2025).");
+        form.reset();
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      } else {
+        alert("Please fill all fields!");
+      }
     });
   </script>
 </body>
