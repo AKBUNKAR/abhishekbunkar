@@ -57,6 +57,12 @@ main {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
+/* Glow animation on hover */
+.glow-hover:hover {
+  box-shadow: 0 0 12px #38bdf8, 0 0 24px #38bdf8;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
 /* Page Load Animations */
 @keyframes fadeIn {
   to {
@@ -217,7 +223,7 @@ h1 {
   color: #fff;
   font-size: 0.95rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 200px; /* Consistent width for alignment */
+  width: 200px;
   justify-content: center;
 }
 
@@ -316,14 +322,14 @@ footer {
     max-width: 92%;
   }
   .social-icons {
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center; /* Center buttons */
-    gap: 12px; /* Slightly smaller gap for mobile */
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
   .social-btn {
     font-size: 0.85rem;
     padding: 10px 16px;
-    width: 180px; /* Slightly smaller width for mobile */
+    width: 180px;
   }
   .floating-contact {
     right: 15px;
@@ -347,6 +353,6 @@ footer {
     max-width: 800px;
   }
   .social-icons {
-    flex-direction: row; /* Row layout for desktop */
+    flex-direction: row;
   }
 }
