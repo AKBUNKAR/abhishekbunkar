@@ -12,13 +12,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="window.scrollTo(0, 0);">
   <header class="header">
-    <div class="profile-image">
-      <img src="https://i.ibb.co/RGBkFgsg/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
+    <div class="profile-image glow-hover">
+      <img src="https://i.ibb.co/RGBkFgsg/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo glow-hover" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
     </div>
-    <div class="profile-text">
-      <h1>Abhishek Bunkar</h1>
+    <div class="profile-text glow-hover">
+      <h1 class="glow-hover">Abhishek Bunkar</h1>
       <p class="tagline">Full-time Trader | Option Chain Analyst</p>
     </div>
   </header>
@@ -44,16 +44,22 @@
     <section class="card contact">
       <h2>Follow Me</h2>
       <div class="social-icons">
-        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 ..."/></svg>
+        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer" aria-label="Follow on Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07..."/>
+          </svg>
           Instagram
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M22.676 ..."/></svg>
+        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer" aria-label="Follow on Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M22.676 0H1.326C.594 0 0 .593 0 1.326v21.348..."/>
+          </svg>
           Facebook
         </a>
-        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.615 ..."/></svg>
+        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer" aria-label="Follow on YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M19.615 3.184A2.986 2.986 0 0 0 17.528 2..."/>
+          </svg>
           YouTube
         </a>
       </div>
@@ -65,7 +71,7 @@
   </footer>
 
   <!-- Floating Contact Button -->
-  <a id="contactLink" class="floating-contact" href="#" aria-label="Email Abhishek">
+  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you." aria-label="Email Abhishek">
     <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Contact';" />
   </a>
 
@@ -73,12 +79,7 @@
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Scroll to top on page reload
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
-
-    // Scroll To Top Button
+    // Scroll To Top
     const scrollBtn = document.getElementById("scrollToTop");
     window.onscroll = function () {
       scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
@@ -87,7 +88,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Dynamic Email Link
+    // Dynamic Email Link for Floating Contact Button
     const contactLink = document.getElementById("contactLink");
     const email = "aveebunkar.22@gmail.com";
     const subject = "Trader Inquiry";
