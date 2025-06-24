@@ -295,6 +295,11 @@ footer {
   height: 60px;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.floating-contact:hover img {
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 .floating-contact:hover {
