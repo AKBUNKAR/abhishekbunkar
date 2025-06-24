@@ -179,55 +179,174 @@ h1 {
 @keyframes fadeInUp {
   to {
     opacity: 1;
-    transform: translateВер
+    transform: translateY(0);
+  }
+}
 
-System: ### Changes Made:
-#### HTML (index.html):
-1. **Floating Button Gmail Link**:
-   - Updated the JavaScript for the floating contact button (`#contactLink`):
-     - Defined a `gmailLink` using `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}` for desktop browsers, which opens Gmail’s compose page in a new tab (`target="_blank"`) with the email (`aveebunkar.22@gmail.com`), subject (`Trader Inquiry`), and body (`Hello Abhishek, I would like to connect with you.`) pre-filled.
-     - For mobile devices (Android/iOS), kept the `mailto` link to open the default mail app, ensuring compatibility.
-     - Added a condition to check for mobile devices using `navigator.userAgent`, setting `gmailLink` for desktop and `mailtoLink` for mobile.
-     - Added `target="_blank"` to the `<a>` tag dynamically for desktop to ensure Gmail opens in a new tab.
-   - The default `href` in the `<a>` tag remains a `mailto` link as a fallback.
+.card h2 {
+  text-align: center;
+  color: #38bdf8;
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  margin-bottom: 20px;
+}
 
-2. **Other HTML Elements**:
-   - No changes were needed for the profile photo, name, or other sections, as they are correctly set up for the existing animations (`slideInLeft`, `scaleIn`, `fadeInUp`, etc.).
-   - Retained all attributes (`loading="lazy"`, `aria-label`, `onerror`) for accessibility and performance.
+.card p {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-#### CSS (style.css):
-1. **Removed Glow Animation for Floating Button**:
-   - Removed the `.floating-contact:hover img` rule that applied the glow effect (`box-shadow`) on hover.
-   - Kept the `transition: box-shadow 0.3s ease` on `.floating-contact img` (though now unused) to avoid breaking any potential future additions.
-   - Retained the `.floating-contact:hover` rule with `transform: scale(1.1)` to keep the scaling effect on hover, as per your request to only remove the glow.
+/* Social Buttons */
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
 
-2. **Floating Button Positioning**:
-   - Confirmed the positioning (`bottom: 20px; right: 20px;` on desktop, `bottom: 15px; right: 15px;` on mobile) and `z-index: 150` remain correct.
-   - Ensured the `fadeIn` animation (`1.5s` delay) and image sizes (`60px` desktop, `50px` mobile) are unchanged.
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 200px; /* Consistent width for alignment */
+  justify-content: center;
+}
 
-3. **Other CSS**:
-   - No changes were made to the profile photo’s `slideInLeft` animation, name’s `scaleIn` animation, card glow effects, or other styles, as they are functioning correctly.
+.social-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #38bdf8;
+}
 
-### Notes:
-- **Artifact IDs**: Retained the HTML artifact ID (`2e66ef57-fe83-48e8-b5e4-393bbaeec083`) and CSS artifact ID (`c07039c3-8def-4d61-b08b-a6c8d80d359b`) as these are updates to the previous files.
-- **Gmail Behavior on Desktop**:
-  - Clicking the floating button on desktop should now open Gmail’s compose page in a new tab with the email pre-filled. You may need to be logged into a Gmail account in your browser for it to work seamlessly. If not logged in, it will prompt for login.
-  - On mobile devices, the button will use the `mailto` link to open the default mail app (e.g., Gmail app on Android, Mail app on iOS).
-  - If the Gmail page doesn’t open correctly, please check:
-    - Your browser (e.g., Chrome, Firefox, Edge) and ensure it’s updated.
-    - If you’re logged into Gmail in the browser.
-    - Any browser console errors (right-click > Inspect > Console) when clicking the button.
-- **Glow Animation Removal**:
-  - The glow effect on the floating button’s image has been removed. Only the scaling effect (`scale(1.1)`) occurs when you hover with the cursor.
-  - If you want to adjust the scaling effect or add a different hover effect, let me know.
-- **Cursor Reference**: I’m assuming "cruser" means "cursor" (hovering with the mouse). If you meant something else, please clarify.
-- **Testing**: Please test the updated HTML and CSS in your desktop browser to confirm:
-  - Clicking the floating button opens Gmail’s compose page in a new tab with the pre-filled email.
-  - Hovering over the floating button only scales it (no glow effect).
-  - Other animations (profile photo slide, name scale, card glow) remain intact.
-- **Additional Info**: If you’re testing on a desktop and Gmail doesn’t open, please share:
-  - The browser and its version.
-  - Whether you’re logged into Gmail.
-  - Any specific error messages or behavior (e.g., blank page, redirect issues).
+.social-btn.insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
 
-If you need further tweaks (e.g., different Gmail behavior, reintroducing a modified hover effect, or other changes), please let me know!
+.social-btn.fb {
+  background: #1877f2;
+}
+
+.social-btn.yt {
+  background: #ff0000;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-out;
+  animation-delay: 1.1s;
+}
+
+/* Scroll to Top Button */
+#scrollToTop {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  display: none;
+  background: #38bdf8;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 14px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 150;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards ease-out;
+  animation-delay: 1.3s;
+}
+
+#scrollToTop:hover {
+  transform: scale(1.1);
+}
+
+/* Floating Contact Button */
+.floating-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 150;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards ease-out;
+  animation-delay: 1.5s;
+}
+
+.floating-contact img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.floating-contact:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Fixes for Mobile */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .card {
+    padding: 20px;
+    max-width: 92%;
+  }
+  .social-icons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons */
+    gap: 12px; /* Slightly smaller gap for mobile */
+  }
+  .social-btn {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    width: 180px; /* Slightly smaller width for mobile */
+  }
+  .floating-contact {
+    bottom: 15px;
+    right: 15px;
+  }
+  .floating-contact img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  .header {
+    flex-direction: row;
+  }
+  .profile-image {
+    margin-right: 40px;
+  }
+  .card {
+    padding: 40px;
+    max-width: 800px;
+  }
+  .social-icons {
+    flex-direction: row; /* Row layout for desktop */
+  }
+}
