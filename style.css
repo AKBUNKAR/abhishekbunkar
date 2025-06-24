@@ -1,109 +1,232 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abhishek Bunkar - Expert Full-time Trader and Option Chain Analyst offering insights on Indian stock market trading." />
-  <meta name="keywords" content="Abhishek Bunkar, Trader, Option Chain Analysis, Indian Stock Market, Trading Tips" />
-  <meta name="author" content="Abhishek Bunkar" />
-  <title>Abhishek Bunkar - Top Trader & Option Analyst</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-</head>
-<body onload="window.scrollTo(0, 0);">
-  <header class="header">
-    <div class="profile-image">
-      <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
-    </div>
-    <div class="profile-text">
-      <h1>Abhishek Bunkar</h1>
-      <p class="tagline">Full-time Trader | Option Chain Analyst</p>
-    </div>
-  </header>
+/* style.css */
 
-  <main>
-    <div class="candlestick-bg" aria-hidden="true">
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
-    </div>
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <section class="card about" id="about">
-      <h2>About Me</h2>
-      <p>
-        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
-      </p>
-      <p>
-        Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
-      </p>
-    </section>
+/* Body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
 
-    <section class="card contact">
-      <h2>Follow Me</h2>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.426.403a4.92 4.92 0 0 1 1.775 1.152 4.918 4.918 0 0 1 1.152 1.775c.163.456.347 1.256.403 2.426.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.403 2.426a4.92 4.92 0 0 1-1.152 1.775 4.92 4.92 0 0 1-1.775 1.152c-.456.163-1.256.347-2.426.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.426-.403a4.92 4.92 0 0 1-1.775-1.152 4.918 4.918 0 0 1-1.152-1.775c-.163-.456-.347-1.256-.403-2.426C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.403-2.426a4.918 4.918 0 0 1 1.152-1.775 4.918 4.918 0 0 1 1.775-1.152c.456-.163 1.256-.347 2.426-.403C8.416 2.175 8.796 2.163 12 2.163zm0 1.838c-3.17 0-3.548.012-4.796.07-1.048.05-1.62.22-1.995.366a3.09 3.09 0 0 0-1.12.73 3.09 3.09 0 0 0-.73 1.12c-.146.375-.316.947-.366 1.995-.058 1.248-.07 1.626-.07 4.796s.012 3.548.07 4.796c.05 1.048.22 1.62.366 1.995a3.09 3.09 0 0 0 .73 1.12 3.09 3.09 0 0 0 1.12.73c.375.146.947.316 1.995.366 1.248.058 1.626.07 4.796.07s3.548-.012 4.796-.07c1.048-.05 1.62-.22 1.995-.366a3.09 3.09 0 0 0 1.12-.73 3.09 3.09 0 0 0 .73-1.12c.146-.375.316-.947.366-1.995.058-1.248.07-1.626.07-4.796s-.012-3.548-.07-4.796c-.05-1.048-.22-1.62-.366-1.995a3.09 3.09 0 0 0-.73-1.12 3.09 3.09 0 0 0-1.12-.73c-.375-.146-.947-.316-1.995-.366-1.248-.058-1.626-.07-4.796-.07zM12 5.838a6.162 6.162 0 1 0 0 12.324A6.162 6.162 0 0 0 12 5.838zm0 10.2a4.038 4.038 0 1 1 0-8.076 4.038 4.038 0 0 1 0 8.076zm6.406-11.845a1.44 1.44 0 1 1-2.881 0 1.44 1.44 0 0 1 2.881 0z"/>
-          </svg>
-          Instagram
-        </a>
+/* Header styling */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-            <path d="M22.676 0H1.326C.594 0 0 .593 0 1.326v21.348C0 23.407.594 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.765v2.314h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.326V1.326C24 .593 23.407 0 22.676 0"/>
-          </svg>
-          Facebook
-        </a>
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+}
 
-        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-            <path fill="white" d="M19.615 3.184A2.986 2.986 0 0 0 17.528 2H6.472a2.986 2.986 0 0 0-2.087.816C2.4 3.53 2 4.53 2 6.167V17.83c0 1.637.4 2.637 2.385 3.184a46.567 46.567 0 0 0 7.615.753 46.567 46.567 0 0 0 7.615-.753C21.6 20.467 22 19.467 22 17.83V6.167c0-1.637-.4-2.637-2.385-2.983ZM10 15.5V8.5l6 3.5-6 3.5Z"/>
-          </svg>
-          YouTube
-        </a>
-      </div>
-    </section>
-  </main>
+.profile-text h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
 
-  <footer>
-    <p>All rights reserved by Abhishek Bunkar © 2025.</p>
-  </footer>
+.profile-text .tagline {
+  font-size: 1.2rem;
+  color: #666;
+}
 
-  <!-- Floating Contact Button -->
-  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you." aria-label="Email Abhishek">
-    <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Contact';" />
-  </a>
+/* Candlestick Background */
+.candlestick-bg {
+  position: fixed; /* Full-screen background */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: -1; /* Behind all content */
+  display: flex;
+  justify-content: space-around; /* Evenly space candles */
+  align-items: flex-end; /* Align at bottom */
+  overflow: hidden; /* Prevent scrollbars */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); /* Subtle gradient */
+}
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollToTop" title="Scroll to top">↑</button>
+/* Candle Bar Styling */
+.candle-bar {
+  width: 20px; /* Width of each candle */
+  height: 100px; /* Default height, adjust as needed */
+  position: relative;
+  animation: candleMove 10s ease-in-out infinite; /* Smooth animation */
+}
 
-  <script>
-    // Scroll To Top
-    const scrollBtn = document.getElementById("scrollToTop");
-    window.onscroll = function () {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    };
-    scrollBtn.onclick = function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+.candle-bar.green {
+  background-color: #26a69a; /* Green for bullish */
+}
 
-    // Dynamic Email Link for Floating Contact Button
-    const contactLink = document.getElementById("contactLink");
-    const email = "aveebunkar.22@gmail.com";
-    const subject = "Trader Inquiry";
-    const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
-    const gmailLink = https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
+.candle-bar.red {
+  background-color: #ef5350; /* Red for bearish */
+}
 
-    if (/android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-      contactLink.href = mailtoLink;
-    } else {
-      contactLink.href = gmailLink;
-      contactLink.target = "_blank";
-    }
-  </script>
-</body>
-</html>
+/* Animation for Candlestick Movement */
+@keyframes candleMove {
+  0% {
+    transform: translateY(0);
+    height: 100px;
+  }
+  50% {
+    transform: translateY(-50px);
+    height: 150px;
+  }
+  100% {
+    transform: translateY(0);
+    height: 100px;
+  }
+}
+
+/* Card Sections */
+.card {
+  background: #fff;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure above candlestick-bg */
+  z-index: 1; /* Above background */
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+}
+
+.social-btn.insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.social-btn.fb {
+  background-color: #3b5998;
+}
+
+.social-btn.yt {
+  background-color: #ff0000;
+}
+
+.social-btn svg {
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating Contact Button */
+.floating-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.floating-contact img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.floating-contact:hover img {
+  transform: scale(1.1);
+}
+
+/* Scroll to Top Button */
+#scrollToTop {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 100;
+  background: #333;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  transition: background 0.3s;
+}
+
+#scrollToTop:hover {
+  background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-image img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .profile-text h1 {
+    font-size: 2rem;
+  }
+
+  .candle-bar {
+    width: 15px; /* Smaller candles on mobile */
+  }
+
+  .card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
