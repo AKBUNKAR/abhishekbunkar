@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
   font-family: 'Inter', sans-serif;
@@ -15,9 +14,18 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
 }
+main { flex: 1 0 auto; }
 
-main {
-  flex: 1 0 auto;
+/* Candlestick Canvas Background */
+#candlestick-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0.05;
 }
 
 /* Header */
@@ -33,6 +41,9 @@ main {
   animation: fadeIn 1s forwards ease-out;
   animation-delay: 0.1s;
 }
+/* (Rest of your existing CSS remains unchanged...) */
+/* Paste all other styles from your CSS after this */
+
 
 .profile-image {
   margin-right: 30px;
