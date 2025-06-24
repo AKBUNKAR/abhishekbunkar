@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Abhishek Bunkar - Full-time Trader, Market Analyst, and Risk Manager">
   <meta name="author" content="Abhishek Bunkar">
+  <meta name="keywords" content="trader, market analyst, risk manager, price action trading, equities, crypto, options">
+  <meta property="og:title" content="Abhishek Bunkar - Trader">
+  <meta property="og:description" content="Full-time Trader, Market Analyst, and Risk Manager with expertise in equities, crypto, and options markets.">
+  <meta property="og:image" content="https://i.ibb.co/RGBkFgsg/Screenshot-2025-06-24-004015.png">
+  <meta property="og:url" content="https://abhishekbunkar.com"> <!-- Replace with actual URL -->
   <title>Abhishek Bunkar - Trader</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
   <main>
@@ -21,25 +26,25 @@
       <div class="candle-bar red"></div>
     </div>
 
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <img
           src="https://i.ibb.co/RGBkFgsg/Screenshot-2025-06-24-004015.png"
-          alt="Abhishek Bunkar"
+          alt="Abhishek Bunkar, Full-time Trader"
           class="big-photo"
           loading="lazy"
           onerror="this.src='https://via.placeholder.com/200?text=No+Image';"
         />
         <div class="hero-text">
-          <h1>Abhishek Bunkar</h1>
+          <h1 id="hero-title">Abhishek Bunkar</h1>
           <p class="tagline">Full-time Trader | Market Analyst | Risk Manager</p>
         </div>
       </div>
     </section>
 
-    <section class="card about">
-      <h2>About Me</h2>
+    <section class="card about" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
       <p>
         I’m a dedicated trader with years of experience in equities, crypto, and options markets.
         My expertise lies in price action trading, risk-to-reward strategies, and market psychology.
@@ -49,29 +54,60 @@
       </p>
     </section>
 
-    <section class="card contact">
-      <h2>Connect with Me</h2>
+    <section class="card trades" aria-labelledby="trades-title">
+      <h2 id="trades-title">Recent Trades</h2>
+      <ul class="trade-list">
+        <li>
+          <span class="trade-type">Long BTC/USD</span>
+          <span class="trade-result profit">+8.5% Profit</span>
+          <span class="trade-date">June 15, 2025</span>
+        </li>
+        <li>
+          <span class="trade-type">Short TSLA</span>
+          <span class="trade-result loss">-2.3% Loss</span>
+          <span class="trade-date">June 10, 2025</span>
+        </li>
+        <li>
+          <span class="trade-type">Call Option AAPL</span>
+          <span class="trade-result profit">+12.2% Profit</span>
+          <span class="trade-date">June 5, 2025</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Connect with Me</h2>
       <div class="social-icons">
-        <a href="https://wa.me/7828350550" target="_blank" class="social-btn whatsapp">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://www.instagram.com/yourusername/" target="_blank" class="social-btn insta">
+        <a href="https://www.instagram.com/abhishekbunkar/" target="_blank" class="social-btn insta" aria-label="Follow on Instagram">
           <i class="fab fa-instagram"></i> Instagram
         </a>
-        <button class="social-btn contact-form-btn">Contact Me</button>
+        <button class="social-btn contact-form-btn" aria-label="Open contact form">Contact Me</button>
       </div>
     </section>
 
-    <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal" id="contactModal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
       <div class="modal-content">
-        <span class="modal-close">×</span>
-        <h2>Contact Me</h2>
-        <div class="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" required></textarea>
-          <button class="submit-btn">Send Message</button>
-        </div>
+        <span class="modal-close" aria-label="Close modal">&times;</span>
+        <h2 id="modal-title">Contact Me</h2>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required aria-describedby="name-error" />
+            <span class="error" id="name-error" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required aria-describedby="email-error" />
+            <span class="error" id="email-error" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" required aria-describedby="message-error"></textarea>
+            <span class="error" id="message-error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <p class="form-success" id="formSuccess" aria-live="polite"></p>
       </div>
     </div>
   </main>
@@ -80,27 +116,98 @@
     <p>© 2025 Abhishek Bunkar. All rights reserved.</p>
   </footer>
 
-  <script>
+  <script defer>
     const modal = document.getElementById("contactModal");
     const btn = document.querySelector(".contact-form-btn");
     const closeBtn = document.querySelector(".modal-close");
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("formSuccess");
 
-    btn.onclick = () => {
+    // Open modal
+    btn.addEventListener("click", () => {
       modal.style.display = "flex";
       modal.setAttribute("aria-hidden", "false");
-    };
+      document.getElementById("name").focus();
+    });
 
-    closeBtn.onclick = () => {
+    // Close modal
+    closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
       modal.setAttribute("aria-hidden", "true");
-    };
+      form.reset();
+      clearErrors();
+      successMsg.textContent = "";
+    });
 
-    window.onclick = (e) => {
-      if (e.target == modal) {
+    // Close modal on outside click
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
         modal.style.display = "none";
         modal.setAttribute("aria-hidden", "true");
+        form.reset();
+        clearErrors();
+        successMsg.textContent = "";
       }
-    };
+    });
+
+    // Form validation and submission
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      let isValid = true;
+
+      if (name.length < 2) {
+        showError("name", "Name must be at least 2 characters long");
+        isValid = false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showError("email", "Please enter a valid email address");
+        isValid = false;
+      }
+
+      if (message.length < 10) {
+        showError("message", "Message must be at least 10 characters long");
+        isValid = false;
+      }
+
+      if (isValid) {
+        // Mock API submission
+        console.log("Form submitted:", { name, email, message });
+        successMsg.textContent = "Message sent successfully!";
+        form.reset();
+        setTimeout(() => {
+          modal.style.display = "none";
+          modal.setAttribute("aria-hidden", "true");
+          successMsg.textContent = "";
+        }, 2000);
+      }
+    });
+
+    function showError(fieldId, message) {
+      const errorElement = document.getElementById(`${fieldId}-error`);
+      errorElement.textContent = message;
+    }
+
+    function clearErrors() {
+      document.querySelectorAll(".error").forEach((el) => (el.textContent = ""));
+    }
+
+    // Keyboard accessibility for modal
+    modal.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+        form.reset();
+        clearErrors();
+        successMsg.textContent = "";
+      }
+    });
   </script>
 </body>
 </html>
