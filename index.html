@@ -82,17 +82,17 @@
 
     // Dynamic Email Client for Floating Contact Button
     const contactLink = document.getElementById("contactLink");
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const email = "aveebunkar.22@gmail.com";
+    const subject = "Trader Inquiry";
+    const body = "Hello Abhishek, I would like to connect with you.";
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    if (/android/i.test(userAgent)) {
-      // Android: Open Gmail app
-      contactLink.href = "intent://sendto/aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you.#Intent;scheme=mailto;package=com.google.android.gm;end";
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      // iOS: Open default Mail app
-      contactLink.href = "mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you.";
-    } else {
-      // Fallback for other devices (e.g., desktop)
-      contactLink.href = "mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you.";
+    // Set mailto link for all devices, prioritizing native mail apps
+    contactLink.href = mailtoLink;
+
+    // For Android, attempt to open Gmail app if available
+    if (/android/i.test(navigator.userAgent)) {
+      contactLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
   </script>
 </body>
