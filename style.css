@@ -125,11 +125,10 @@ h1 {
   margin-bottom: 20px;
 }
 
-.card p, .card ul {
+.card p {
   font-size: 1rem;
   line-height: 1.8;
   text-align: center;
-  list-style-position: inside;
 }
 
 .social-icons {
