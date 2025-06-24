@@ -32,38 +32,35 @@
       <div class="candle-bar red"></div>
     </div>
 
-    <section class="card about fade-in" id="about">
+    <section class="card about" id="about">
       <h2>About Me</h2>
-      <p>📈 I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market.</p>
-      <p>🧠 My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.</p>
-      <p>📊 Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Let’s explore the markets together and achieve success!</p>
+      <p>
+        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
+      </p>
+      <p>
+        Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
+      </p>
     </section>
 
-    <section class="card contact fade-in">
-      <h2>Connect with Me</h2>
+    <section class="card contact">
+      <h2>Follow Me</h2>
       <div class="social-icons">
         <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">
           <i class="fab fa-instagram"></i> Instagram
         </a>
-        <button class="social-btn contact-form-btn">Contact Me</button>
+        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
       </div>
     </section>
 
-    <div class="contact-modal" id="contactModal" aria-hidden="true">
-      <div class="modal-content">
-        <span class="modal-close">×</span>
-        <h2>Contact Me</h2>
-        <form class="contact-form" id="contactForm">
-          <input type="text" id="name" placeholder="Your Name" required />
-          <input type="email" id="email" placeholder="Your Email" required />
-          <textarea id="message" placeholder="Your Message" required></textarea>
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-      </div>
-    </div>
+    <button class="floating-contact" onclick="scrollToSection('about')">
+      <i class="fas fa-envelope"></i>
+    </button>
 
-    <button id="scrollToTop" title="Go to top"><i class="fas fa-chevron-up"></i></button>
-    <button class="floating-contact contact-form-btn"><i class="fas fa-envelope"></i></button>
+    <button id="scrollToTop" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
   </main>
 
   <footer>
@@ -71,63 +68,19 @@
   </footer>
 
   <script>
-    const modal = document.getElementById("contactModal");
-    const btn = document.querySelector(".contact-form-btn");
-    const closeBtn = document.querySelector(".modal-close");
-    const form = document.getElementById("contactForm");
-    const scrollBtn = document.getElementById("scrollToTop");
+    const scrollToTopBtn = document.getElementById("scrollToTop");
 
-    document.querySelectorAll('.contact-form-btn').forEach(button => {
-      button.onclick = () => {
-        modal.style.display = "flex";
-        modal.setAttribute("aria-hidden", "false");
-      };
+    window.addEventListener("scroll", () => {
+      scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
     });
 
-    closeBtn.onclick = () => {
-      modal.style.display = "none";
-      modal.setAttribute("aria-hidden", "true");
-    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-    window.onclick = (e) => {
-      if (e.target == modal) {
-        modal.style.display = "none";
-        modal.setAttribute("aria-hidden", "true");
-      }
-    };
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-      if (name && email && message) {
-        console.log("Form Submitted:", {
-          name,
-          email,
-          message,
-          time: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
-        });
-        alert("Message sent successfully!");
-        form.reset();
-        modal.style.display = "none";
-        modal.setAttribute("aria-hidden", "true");
-      } else {
-        alert("Please fill all fields!");
-      }
-    });
-
-    window.onscroll = () => {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    };
-
-    scrollBtn.onclick = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   </script>
 </body>
 </html>
