@@ -83,10 +83,21 @@
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Force scroll to top on page load
+    // Initialize Read More state
+    function initReadMore() {
+      const moreContent = document.getElementById("moreContent");
+      const readMoreText = document.querySelector(".read-more-text");
+      if (window.innerWidth <= 768) {
+        moreContent.style.display = "none";
+        readMoreText.textContent = "read more";
+      }
+    }
+
+    // Force scroll to top and initialize read more on page load
     window.onload = function () {
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'instant' });
+        initReadMore();
       }, 100);
     };
 
