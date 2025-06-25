@@ -6,13 +6,22 @@
 }
 
 html, body {
-  height: auto;
+  height: 100%;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
   color: #f8fafc;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   scroll-behavior: smooth;
   overflow-y: auto;
+  position: relative;
+  top: 0;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /* Header */
@@ -86,14 +95,12 @@ h1 {
   font-weight: 800;
   color: #f1f5f9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  will-change: transform, opacity;
 }
 
 .tagline {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 500;
   color: #38bdf8;
-  will-change: transform, opacity;
 }
 
 /* Background Candle Animation */
@@ -372,4 +379,4 @@ footer {
   #moreContent {
     display: block;
   }
-}
+}  
