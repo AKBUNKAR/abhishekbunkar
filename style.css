@@ -14,7 +14,7 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  scroll-behavior: auto; /* Changed to auto to prevent smooth scroll triggering */
+  scroll-behavior: smooth;
   overflow-y: auto;
   position: relative;
   top: 0;
@@ -41,7 +41,7 @@ main {
 .profile-image {
   margin-right: 30px;
   opacity: 0;
-  animation: slideInRight 1s forwards ease-out; /* Changed to slideInRight for consistency */
+  animation: slideInLeft 1s forwards ease-out;
   animation-delay: 0.3s;
 }
 
@@ -328,7 +328,7 @@ footer {
   .profile-image {
     margin-right: 0;
     margin-bottom: 20px;
-    animation: slideInRight 1s forwards ease-out; /* Ensure slideInRight on mobile */
+    animation: slideInLeft 1s forwards ease-out;
     animation-delay: 0.3s;
   }
   .card {
