@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body onload="window.scrollTo(0, 0);">
+<body>
   <header class="header">
     <div class="profile-image">
       <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
@@ -36,9 +36,12 @@
       <p>
         I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
       </p>
-      <p>
-        Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
-      </p>
+      <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+      <div id="moreContent">
+        <p>
+          Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
+        </p>
+      </div>
     </section>
 
     <section class="card contact">
@@ -95,14 +98,27 @@
     const email = "aveebunkar.22@gmail.com";
     const subject = "Trader Inquiry";
     const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
-    const gmailLink = https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     if (/android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
       contactLink.href = mailtoLink;
     } else {
       contactLink.href = gmailLink;
       contactLink.target = "_blank";
+    }
+
+    // Read More Toggle
+    function toggleReadMore() {
+      const moreContent = document.getElementById("moreContent");
+      const btnText = document.querySelector(".read-more-btn");
+      if (moreContent.style.display === "block") {
+        moreContent.style.display = "none";
+        btnText.textContent = "Read More";
+      } else {
+        moreContent.style.display = "block";
+        btnText.textContent = "Read Less";
+      }
     }
   </script>
 </body>
