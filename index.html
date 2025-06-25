@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abhishek Bunkar - Expert Full-time Trader and Option Chain Analyst offering insights on Indian stock market trading." />
-  <meta name="keywords" content="Abhishek Bunkar, Trader, Option Chain Analysis, Indian Stock Market, Trading Tips" />
-  <meta name="author" content="Abhishek Bunkar" />
   <title>Abhishek Bunkar - Top Trader & Option Analyst</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,8 +15,8 @@
       <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" />
     </div>
     <div class="profile-text">
-      <h1>Abhishek Bunkar</h1>
-      <p class="tagline">Full-time Trader | Option Chain Analyst</p>
+      <h1 class="slide-in-text">Abhishek Bunkar</h1>
+      <p class="tagline slide-in-text">Full-time Trader | Option Chain Analyst</p>
     </div>
   </header>
 
@@ -34,9 +31,13 @@
     <section class="card about" id="about">
       <h2>About Me</h2>
       <p>
-        <span class="short-text">I am Abhishek Bunkar, a dedicated full-time option trader</span>
-        <span class="full-text"> specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth. Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!</span>
-        <button class="read-more-btn" onclick="toggleReadMore(this)">...read more</button>
+        <span class="short-text">
+          I am Abhishek Bunkar, a dedicated full-time option trader...
+        </span>
+        <span class="full-text">
+          specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth. Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
+        </span>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">read more</button>
       </p>
     </section>
 
@@ -55,13 +56,13 @@
   </footer>
 
   <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com">
-    <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" />
+    <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" />
   </a>
 
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Scroll to Top Button
+    // Scroll To Top
     const scrollBtn = document.getElementById("scrollToTop");
     window.onscroll = function () {
       scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
@@ -74,7 +75,7 @@
     function toggleReadMore(btn) {
       const about = btn.closest('.about');
       about.classList.toggle('expanded');
-      btn.innerText = about.classList.contains('expanded') ? ' read less' : '...read more';
+      btn.textContent = about.classList.contains('expanded') ? 'read less' : 'read more';
     }
   </script>
 </body>
