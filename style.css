@@ -204,12 +204,13 @@ h1 {
 /* Read More Text */
 .read-more-text {
   display: none;
-  color: #38bdf8;
+  color: #60a5fa;
   cursor: pointer;
   font-weight: 500;
 }
 
 .read-more-text:hover {
+  color: #93c5fd;
   text-decoration: underline;
 }
 
