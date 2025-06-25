@@ -47,9 +47,26 @@ main {
 
 .profile-text {
   text-align: center;
+}
+
+/* 🔄 Right-to-left animation for name and tagline */
+h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  animation: slideInRight 0.8s forwards ease-out;
+  animation: slideInFromRight 0.8s forwards ease-out;
   animation-delay: 0.5s;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 500;
+  color: #38bdf8;
+  opacity: 0;
+  animation: slideInFromRight 0.8s forwards ease-out;
+  animation-delay: 0.7s;
 }
 
 .big-photo {
@@ -79,6 +96,18 @@ main {
   }
 }
 
+/* ✅ New Right-to-Left Animation */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -88,19 +117,6 @@ main {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-h1 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  font-weight: 800;
-  color: #f1f5f9;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.tagline {
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
-  font-weight: 500;
-  color: #38bdf8;
 }
 
 /* Background Candle Animation */
