@@ -44,7 +44,7 @@ main {
 .profile-text {
   text-align: center;
   opacity: 0;
-  animation: scaleIn 0.8s forwards ease-out;
+  animation: slideInRight 0.8s forwards ease-out;
   animation-delay: 0.5s;
 }
 
@@ -57,7 +57,7 @@ main {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-/* Page Load Animations */
+/* Animations */
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -68,6 +68,17 @@ main {
   from {
     opacity: 0;
     transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
@@ -333,6 +344,29 @@ footer {
   .floating-contact img {
     width: 50px;
     height: 50px;
+  }
+
+  /* Mobile Read More Button and Toggle Text */
+  .about .read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #38bdf8;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .about .full-text {
+    display: none;
+  }
+
+  .about.expanded .full-text {
+    display: block;
+  }
+
+  .about.expanded .short-text {
+    display: none;
   }
 }
 
