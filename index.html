@@ -34,9 +34,8 @@
     <section class="card about" id="about">
       <h2>About Me</h2>
       <p>
-        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
+        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth... <span class="read-more-text" onclick="toggleReadMore()">read more</span>
       </p>
-      <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
       <div id="moreContent">
         <p>
           Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
@@ -84,7 +83,14 @@
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Scroll To Top
+    // Force scroll to top on page load
+    window.onload = function () {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, 100);
+    };
+
+    // Scroll To Top Button
     const scrollBtn = document.getElementById("scrollToTop");
     window.onscroll = function () {
       scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
@@ -98,8 +104,8 @@
     const email = "aveebunkar.22@gmail.com";
     const subject = "Trader Inquiry";
     const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 
     if (/android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
       contactLink.href = mailtoLink;
@@ -111,13 +117,13 @@
     // Read More Toggle
     function toggleReadMore() {
       const moreContent = document.getElementById("moreContent");
-      const btnText = document.querySelector(".read-more-btn");
+      const readMoreText = document.querySelector(".read-more-text");
       if (moreContent.style.display === "block") {
         moreContent.style.display = "none";
-        btnText.textContent = "Read More";
+        readMoreText.textContent = "read more";
       } else {
         moreContent.style.display = "block";
-        btnText.textContent = "Read Less";
+        readMoreText.textContent = "read less";
       }
     }
   </script>
