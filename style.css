@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -44,8 +43,19 @@ main {
 .profile-text {
   text-align: center;
   opacity: 0;
-  animation: slideInRight 0.8s forwards ease-out;
+  animation: slideInFromRight 1s forwards ease-out;
   animation-delay: 0.5s;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .big-photo {
@@ -57,51 +67,10 @@ main {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 800;
   color: #f1f5f9;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .tagline {
@@ -110,7 +79,7 @@ h1 {
   color: #38bdf8;
 }
 
-/* Background Candle Animation */
+/* Candlestick Background */
 .candlestick-bg {
   position: fixed;
   top: 0;
@@ -133,6 +102,14 @@ h1 {
   animation: flicker 2s infinite ease-in-out;
 }
 
+.candle-bar.green {
+  background-color: #16a34a;
+}
+
+.candle-bar.red {
+  background-color: #dc2626;
+}
+
 .candle-bar::before {
   content: '';
   position: absolute;
@@ -144,21 +121,13 @@ h1 {
   top: -20px;
 }
 
-.candle-bar.green {
-  background-color: #16a34a;
-}
-
-.candle-bar.red {
-  background-color: #dc2626;
-}
-
 @keyframes flicker {
-  0% { transform: scaleY(0.9) translateY(0); opacity: 0.5; }
-  50% { transform: scaleY(1.1) translateY(-5px); opacity: 0.8; }
-  100% { transform: scaleY(1) translateY(0); opacity: 0.5; }
+  0% { transform: scaleY(0.9); opacity: 0.5; }
+  50% { transform: scaleY(1.1); opacity: 0.8; }
+  100% { transform: scaleY(1); opacity: 0.5; }
 }
 
-/* Card Styling */
+/* Cards */
 .card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -173,10 +142,6 @@ h1 {
   transform: translateY(30px);
   animation: fadeInUp 0.8s forwards ease-out;
   transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 .card.about {
@@ -205,7 +170,47 @@ h1 {
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.8;
   text-align: center;
-  margin-bottom: 10px;
+}
+
+/* Read More Logic */
+@media (max-width: 768px) {
+  .about .short-text {
+    display: inline;
+  }
+
+  .about .full-text {
+    display: none;
+  }
+
+  .about.expanded .full-text {
+    display: inline;
+  }
+
+  .about.expanded .short-text {
+    display: none;
+  }
+
+  .about .read-more-btn {
+    display: inline;
+    color: #38bdf8;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: inherit;
+    cursor: pointer;
+    padding-left: 4px;
+  }
+}
+
+@media (min-width: 769px) {
+  .about .short-text,
+  .about .read-more-btn {
+    display: none;
+  }
+
+  .about .full-text {
+    display: inline;
+  }
 }
 
 /* Social Buttons */
@@ -238,7 +243,7 @@ h1 {
 }
 
 .social-btn.insta {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 .social-btn.fb {
@@ -261,7 +266,7 @@ footer {
   animation-delay: 1.1s;
 }
 
-/* Scroll to Top Button */
+/* Scroll to Top */
 #scrollToTop {
   position: fixed;
   bottom: 80px;
@@ -277,29 +282,19 @@ footer {
   z-index: 150;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards ease-out;
-  animation-delay: 1.3s;
 }
 
 #scrollToTop:hover {
   transform: scale(1.1);
 }
 
-/* Floating Contact Button */
+/* Floating Contact */
 .floating-contact {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
   z-index: 150;
   transition: transform 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards ease-out;
-  animation-delay: 1.5s;
 }
 
 .floating-contact img {
@@ -311,77 +306,4 @@ footer {
 
 .floating-contact:hover {
   transform: scale(1.1);
-}
-
-/* Responsive Fixes for Mobile */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .profile-image {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-  .card {
-    padding: 20px;
-    max-width: 92%;
-  }
-  .social-icons {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .social-btn {
-    font-size: 0.85rem;
-    padding: 10px 16px;
-    width: 180px;
-  }
-  .floating-contact {
-    right: 15px;
-    bottom: 15px;
-  }
-  .floating-contact img {
-    width: 50px;
-    height: 50px;
-  }
-
-  /* Mobile Read More Button and Toggle Text */
-  .about .read-more-btn {
-    display: inline-block;
-    margin-top: 10px;
-    color: #38bdf8;
-    background: transparent;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .about .full-text {
-    display: none;
-  }
-
-  .about.expanded .full-text {
-    display: block;
-  }
-
-  .about.expanded .short-text {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .header {
-    flex-direction: row;
-  }
-  .profile-image {
-    margin-right: 40px;
-  }
-  .card {
-    padding: 40px;
-    max-width: 800px;
-  }
-  .social-icons {
-    flex-direction: row;
-  }
 }
