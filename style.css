@@ -14,7 +14,7 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   overflow-y: auto;
   position: relative;
   top: 0;
@@ -31,11 +31,11 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.0);
+  background: rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
   opacity: 0;
-  animation: fadeIn 0.1s forwards ease-out;
-  animation-delay: 1s;
+  animation: fadeIn 1s forwards ease-out;
+  animation-delay: 0.1s;
 }
 
 .profile-image {
@@ -48,17 +48,17 @@ main {
 .profile-text {
   text-align: center;
   opacity: 0;
-  animation: slideInRight 0.8s forwards ease-out;
+  animation: scaleIn 0.8s forwards ease-out;
   animation-delay: 0.5s;
 }
 
 .big-photo {
   width: min(20vw, 150px);
-  height: min(0, 150px);
+  height: min(20vw, 150px);
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #38bdf8;
-  box-shadow: 0 0px 10px rgba(56, 189, 248, 0.0);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
 /* Page Load Animations */
@@ -76,27 +76,30 @@ main {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
 }
 
-@keyframes slideInRight {
+@keyframes scaleIn {
   from {
-    opacity: translateX(50px);
+    opacity: 0;
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
+  }
 }
 
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
-  font-weight: bold;
-  color: #f1f5f5;
-  text-shadow: 0 2px 4px rgba(0, 0,0.2);
+  font-weight: 800;
+  color: #f1f5f9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .tagline {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  font-weight: normal;
+  font-weight: 500;
   color: #38bdf8;
 }
 
@@ -106,7 +109,7 @@ h1 {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   z-index: 0;
   display: flex;
   align-items: flex-end;
@@ -128,7 +131,7 @@ h1 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: auto;
+  width: 2px;
   height: 20px;
   background-color: currentColor;
   top: -20px;
@@ -145,7 +148,7 @@ h1 {
 @keyframes flicker {
   0% { transform: scaleY(0.9) translateY(0); opacity: 0.5; }
   50% { transform: scaleY(1.1) translateY(-5px); opacity: 0.8; }
- 100% { transform: scaleY(1) translateY(0); opacity: 0.5; }
+  100% { transform: scaleY(1) translateY(0); opacity: 0.5; }
 }
 
 /* Card Styling */
@@ -156,17 +159,17 @@ h1 {
   padding: 40px;
   margin: 20px auto;
   max-width: 800px;
-  box-shadow: 0 8px 24px rgba(0, 0,0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 2;
-  opacity成都: 0;
+  opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s forwards ease-out;
   transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5), 0 0px 20px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 .card.about {
@@ -182,6 +185,8 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
 .card h2 {
   text-align: center;
   color: #38bdf8;
@@ -201,11 +206,11 @@ h1 {
   display: none;
   color: #60a5fa;
   cursor: pointer;
-  font-weight: normal;
+  font-weight: 500;
 }
 
 .read-more-text:hover, .read-less-text:hover {
-  background-color: #93c5fd;
+  color: #93c5fd;
   text-decoration: underline;
 }
 
@@ -229,17 +234,17 @@ h1 {
   color: #fff;
   font-size: 0.95rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: auto;
+  width: 200px;
   justify-content: center;
 }
 
 .social-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0px 0px 10px #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
 }
 
 .social-btn.insta {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fff497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 .social-btn.fb {
@@ -292,9 +297,9 @@ footer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: none;
+  background: transparent;
   border: none;
-  padding: 0px;
+  padding: 0;
   cursor: pointer;
   z-index: 150;
   transition: transform 0.3s ease;
@@ -315,7 +320,7 @@ footer {
 }
 
 /* Responsive Fixes for Mobile */
-@media__media (max-width: 768px) {
+@media (max-width: 768px) {
   .header {
     flex-direction: column;
     text-align: center;
@@ -323,8 +328,6 @@ footer {
   .profile-image {
     margin-right: 0;
     margin-bottom: 20px;
-    animation: slideInLeft 1s forwards ease-out;
-    animation-delay: 0.3s;
   }
   .card {
     padding: 20px;
@@ -338,14 +341,14 @@ footer {
   .social-btn {
     font-size: 0.85rem;
     padding: 10px 16px;
-    width: auto;
+    width: 180px;
   }
   .floating-contact {
-    right: 15px 10px 10px;
-    bottom: auto;
+    right: 15px;
+    bottom: 15px;
   }
   .floating-contact img {
-    width: auto;
+    width: 50px;
     height: 50px;
   }
   #moreContent {
@@ -359,7 +362,7 @@ footer {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 769px) {
   .header {
     flex-direction: row;
   }
@@ -367,7 +370,7 @@ footer {
     margin-right: 40px;
   }
   .card {
-    padding: 20px;
+    padding: 40px;
     max-width: 800px;
   }
   .social-icons {
