@@ -15,7 +15,7 @@
 <body onload="window.scrollTo(0, 0);">
   <header class="header">
     <div class="profile-image">
-      <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
+      <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" />
     </div>
     <div class="profile-text">
       <h1>Abhishek Bunkar</h1>
@@ -33,39 +33,19 @@
 
     <section class="card about" id="about">
       <h2>About Me</h2>
-      <div class="short-text">
-        <p>
-          I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies...
-        </p>
-      </div>
-      <div class="full-text">
-        <p>
-          I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
-        </p>
-        <p>
-          Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!
-        </p>
-      </div>
-      <button class="read-more-btn" onclick="toggleAbout()">Read More</button>
+      <p>
+        <span class="short-text">I am Abhishek Bunkar, a dedicated full-time option trader</span>
+        <span class="full-text"> specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth. Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success!</span>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">...read more</button>
+      </p>
     </section>
 
     <section class="card contact">
       <h2>Follow Me</h2>
       <div class="social-icons">
-        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">
-          <!-- SVG icon here -->
-          Instagram
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">
-          <!-- SVG icon here -->
-          Facebook
-        </a>
-
-        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer">
-          <!-- SVG icon here -->
-          YouTube
-        </a>
+        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb">Facebook</a>
+        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt">YouTube</a>
       </div>
     </section>
   </main>
@@ -74,14 +54,14 @@
     <p>All rights reserved by Abhishek Bunkar © 2025.</p>
   </footer>
 
-  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you." aria-label="Email Abhishek">
-    <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Contact';" />
+  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com">
+    <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" />
   </a>
 
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Scroll To Top
+    // Scroll to Top Button
     const scrollBtn = document.getElementById("scrollToTop");
     window.onscroll = function () {
       scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
@@ -90,27 +70,11 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Email Button Detection
-    const contactLink = document.getElementById("contactLink");
-    const email = "aveebunkar.22@gmail.com";
-    const subject = "Trader Inquiry";
-    const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    if (/android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-      contactLink.href = mailtoLink;
-    } else {
-      contactLink.href = gmailLink;
-      contactLink.target = "_blank";
-    }
-
     // Read More Toggle
-    function toggleAbout() {
-      const aboutCard = document.getElementById("about");
-      aboutCard.classList.toggle("expanded");
-      const btn = aboutCard.querySelector(".read-more-btn");
-      btn.textContent = aboutCard.classList.contains("expanded") ? "Read Less" : "Read More";
+    function toggleReadMore(btn) {
+      const about = btn.closest('.about');
+      about.classList.toggle('expanded');
+      btn.innerText = about.classList.contains('expanded') ? ' read less' : '...read more';
     }
   </script>
 </body>
