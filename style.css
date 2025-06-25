@@ -14,7 +14,7 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Changed to auto to prevent smooth scroll triggering */
   overflow-y: auto;
   position: relative;
   top: 0;
@@ -41,7 +41,7 @@ main {
 .profile-image {
   margin-right: 30px;
   opacity: 0;
-  animation: slideInLeft 1s forwards ease-out;
+  animation: slideInRight 1s forwards ease-out; /* Changed to slideInRight for consistency */
   animation-delay: 0.3s;
 }
 
@@ -113,7 +113,7 @@ h1 {
   z-index: 0;
   display: flex;
   align-items: flex-end;
-  justify-content: space Peking around;
+  justify-content: space-around;
   opacity: 0.08;
   pointer-events: none;
 }
@@ -328,6 +328,8 @@ footer {
   .profile-image {
     margin-right: 0;
     margin-bottom: 20px;
+    animation: slideInRight 1s forwards ease-out; /* Ensure slideInRight on mobile */
+    animation-delay: 0.3s;
   }
   .card {
     padding: 20px;
