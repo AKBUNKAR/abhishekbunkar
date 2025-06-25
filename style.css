@@ -49,14 +49,15 @@ main {
   text-align: center;
 }
 
-/* 🔄 Right-to-left animation for name and tagline */
+/* ✅ Name and Tagline Animation - Slide from Right */
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 800;
   color: #f1f5f9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  animation: slideInFromRight 0.8s forwards ease-out;
+  transform: translateX(50px);
+  animation: slideFromRight 0.8s forwards ease-out;
   animation-delay: 0.5s;
 }
 
@@ -65,7 +66,8 @@ h1 {
   font-weight: 500;
   color: #38bdf8;
   opacity: 0;
-  animation: slideInFromRight 0.8s forwards ease-out;
+  transform: translateX(50px);
+  animation: slideFromRight 0.8s forwards ease-out;
   animation-delay: 0.7s;
 }
 
@@ -96,8 +98,8 @@ h1 {
   }
 }
 
-/* ✅ New Right-to-Left Animation */
-@keyframes slideInFromRight {
+/* ✅ Slide from Right Animation */
+@keyframes slideFromRight {
   from {
     opacity: 0;
     transform: translateX(50px);
