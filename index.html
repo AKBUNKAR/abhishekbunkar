@@ -95,10 +95,9 @@
       }
     }
 
-    // Force scroll to top and initialize read more on page load
+    // Initialize read more on page load
     window.onload = function () {
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'instant' });
         initReadMore();
       }, 100);
     };
