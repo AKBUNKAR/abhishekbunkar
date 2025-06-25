@@ -201,15 +201,15 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Read More Text */
-.read-more-text {
+/* Read More/Less Text */
+.read-more-text, .read-less-text {
   display: none;
   color: #60a5fa;
   cursor: pointer;
   font-weight: 500;
 }
 
-.read-more-text:hover {
+.read-more-text:hover, .read-less-text:hover {
   color: #93c5fd;
   text-decoration: underline;
 }
@@ -356,6 +356,9 @@ footer {
   }
   .read-more-text {
     display: inline;
+  }
+  .read-less-text {
+    display: none;
   }
 }
 
