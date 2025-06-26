@@ -138,3 +138,17 @@ window.addEventListener("load", () => {
   window.scrollTo(0, 0);
   setTimeout(() => window.scrollTo(0, 0), 10); // double call for reliability on some devices
 });
+// update//
+// Prevent auto-scroll on mobile refresh
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    document.activeElement?.blur();
+  }, 10);
+});
+
+// Clear any auto focus on unload
+window.addEventListener('beforeunload', () => {
+  document.querySelectorAll('input, select, textarea').forEach(el => el.blur());
+});
+
