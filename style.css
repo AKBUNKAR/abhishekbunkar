@@ -1,4 +1,169 @@
 /* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.container {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards ease-out;
+  transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+/* Heading */
+h2.heading {
+  color: #38BDF8;
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  margin-bottom: 20px;
+}
+
+/* Dropdown */
+select#zoneSelect {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background-color: #0f172a;
+  color: #ffffff;
+  margin-bottom: 20px;
+  appearance: none;
+}
+
+/* Suggestion Box */
+.suggestion-box {
+  background: #0f172a;
+  padding: 14px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #f8fafc;
+}
+
+/* Row Layout */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.row label {
+  flex: 1;
+  font-weight: bold;
+  min-width: 120px;
+}
+
+/* Input + Copy Button */
+.input-wrapper {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background-color: #0f172a;
+  color: #fff;
+  width: 100%;
+}
+
+/* Copy Button */
+.copy-btn {
+  padding: 8px 10px;
+  background-color: #2563eb;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.copy-btn.clicked {
+  background-color: #22c55e !important;
+}
+
+/* Toggle Button */
+.toggle-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .row label {
+    margin-bottom: 6px;
+  }
+
+  .input-wrapper {
+    flex-direction: row;
+  }
+}
+
+//web page// 
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
