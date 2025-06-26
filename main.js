@@ -133,3 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadValues();
 });
+window.addEventListener("load", () => {
+  // Force scroll to top on page load
+  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 10); // double call for reliability on some devices
+});
