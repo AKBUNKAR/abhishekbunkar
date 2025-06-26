@@ -549,3 +549,33 @@ footer {
   }
 }
 
+// update //
+@media (max-width: 768px) {
+  .container {
+    padding: 20px !important;
+    max-width: 92% !important;
+    margin: 16px auto !important;
+  }
+
+  .card {
+    padding: 20px !important;
+    max-width: 92% !important;
+    margin: 16px auto !important;
+  }
+
+  .row label {
+    font-size: 14px;
+  }
+
+  .input-wrapper input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  select#zoneSelect {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
