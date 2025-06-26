@@ -13,49 +13,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
-    <div class="profile-image">
-      <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
-    </div>
-    <div class="profile-text">
-      <h1>Abhishek Bunkar</h1>
-      <p class="tagline">Full-time Trader | Option Chain Analyst</p>
-    </div>
-  </header>
+  <div id="page">
+    <header class="header">
+      <div class="profile-image">
+        <img src="https://i.ibb.co/4RnTwkMq/Screenshot-2025-06-24-004015.png" alt="Abhishek Bunkar Profile" class="big-photo" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Image';" />
+      </div>
+      <div class="profile-text">
+        <h1>Abhishek Bunkar</h1>
+        <p class="tagline">Full-time Trader | Option Chain Analyst</p>
+      </div>
+    </header>
 
-  <main>
-    <div class="candlestick-bg" aria-hidden="true">
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
-      <div class="candle-bar green"></div>
-      <div class="candle-bar red"></div>
-    </div>
+    <main>
+      <div class="candlestick-bg" aria-hidden="true">
+        <div class="candle-bar green"></div>
+        <div class="candle-bar red"></div>
+        <div class="candle-bar green"></div>
+        <div class="candle-bar red"></div>
+      </div>
 
-    <section class="card about" id="about">
-      <h2>About Me</h2>
-      <p>
-        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.<span class="read-more-text" onclick="toggleReadMore()">..read more</span>
-      </p>
-      <div id="moreContent">
+      <section class="card about" id="about">
+        <h2>About Me</h2>
         <p>
-          Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success.<span class="read-less-text" onclick="toggleReadMore()">..read less</span>
+          I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market.<span class="read-more-text" onclick="toggleReadMore()">..read more</span>
         </p>
-      </div>
-    </section>
+        <div id="moreContent">
+          <p>
+            Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success.<span class="read-less-text" onclick="toggleReadMore()">..read less</span>
+          </p>
+        </div>
+      </section>
 
-    <section class="card contact">
-      <h2>Follow Me</h2>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer">YouTube</a>
-      </div>
-    </section>
-  </main>
+      <section class="card contact">
+        <h2>Follow Me</h2>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb">Facebook</a>
+          <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt">YouTube</a>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>All rights reserved by Abhishek Bunkar © 2025.</p>
-  </footer>
+    <footer>
+      <p>All rights reserved by Abhishek Bunkar © 2025.</p>
+    </footer>
+  </div>
 
   <!-- Floating Contact Button -->
   <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you." aria-label="Email Abhishek">
@@ -66,60 +68,64 @@
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Ensure top scroll reset
-    window.addEventListener("load", function () {
-      window.scrollTo(0, 0); // Force scroll to top even on mobile
-      initReadMore();
+    // Force scroll to top on load
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        initReadMore();
+      }, 10);
     });
 
-    // Scroll To Top Button visibility toggle
+    // Show scroll to top button
     const scrollBtn = document.getElementById("scrollToTop");
-    window.onscroll = function () {
+    window.onscroll = () => {
       scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
     };
-    scrollBtn.onclick = function () {
+    scrollBtn.onclick = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Email button link switch for mobile/desktop
+    // Dynamic Email Button
     const contactLink = document.getElementById("contactLink");
     const email = "aveebunkar.22@gmail.com";
     const subject = "Trader Inquiry";
     const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    if (/android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      contactLink.href = mailtoLink;
+    if (/android|iphone|ipad/i.test(navigator.userAgent)) {
+      contactLink.href = mailto;
     } else {
-      contactLink.href = gmailLink;
+      contactLink.href = gmail;
       contactLink.target = "_blank";
     }
 
-    // Read More/Less
+    // Read more toggle
     function initReadMore() {
-      const moreContent = document.getElementById("moreContent");
-      const readMoreText = document.querySelector(".read-more-text");
-      const readLessText = document.querySelector(".read-less-text");
+      const more = document.getElementById("moreContent");
+      const readMore = document.querySelector(".read-more-text");
+      const readLess = document.querySelector(".read-less-text");
+
       if (window.innerWidth <= 768) {
-        moreContent.style.display = "none";
-        readMoreText.style.display = "inline";
-        readLessText.style.display = "none";
+        more.style.display = "none";
+        readMore.style.display = "inline";
+        readLess.style.display = "none";
       }
     }
 
     function toggleReadMore() {
-      const moreContent = document.getElementById("moreContent");
-      const readMoreText = document.querySelector(".read-more-text");
-      const readLessText = document.querySelector(".read-less-text");
-      if (moreContent.style.display === "block") {
-        moreContent.style.display = "none";
-        readMoreText.style.display = "inline";
-        readLessText.style.display = "none";
+      const more = document.getElementById("moreContent");
+      const readMore = document.querySelector(".read-more-text");
+      const readLess = document.querySelector(".read-less-text");
+
+      if (more.style.display === "block") {
+        more.style.display = "none";
+        readMore.style.display = "inline";
+        readLess.style.display = "none";
       } else {
-        moreContent.style.display = "block";
-        readMoreText.style.display = "none";
-        readLessText.style.display = "inline";
+        more.style.display = "block";
+        readMore.style.display = "none";
+        readLess.style.display = "inline";
       }
     }
   </script>
