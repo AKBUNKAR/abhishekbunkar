@@ -534,3 +534,18 @@ footer {
     display: block;
   }
 }
+@media (max-width: 768px) {
+  html, body {
+    scroll-behavior: auto !important;
+    overflow-y: auto;
+  }
+
+  input, select, button, textarea {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+
+  body {
+    padding-top: 16px !important;
+  }
+}
+
