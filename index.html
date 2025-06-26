@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
   <header class="header">
@@ -31,9 +32,98 @@
       <div class="candle-bar red"></div>
     </div>
 
+    <!-- Trade Zone Analyzer -->
+    <div class="container hover-glow">
+      <h2 class="heading">Trade Selector</h2>
+      <select id="zoneSelect">
+        <option value="">-- Select Trade Zone --</option>
+        <option>S RISKEY</option>
+        <option>S MODERATE</option>
+        <option>R RISKEY</option>
+        <option>R MODERATE</option>
+        <option>9TH SCENARIO</option>
+        <option>8TH SCENARIO</option>
+        <option>BULL RUN</option>
+        <option>BLOOD BATH</option>
+        <option>NO TRADE</option>
+      </select>
+      <div id="suggestion" class="suggestion-box"></div>
+    </div>
+
+    <!-- Extension Calculator UI -->
+    <div class="container hover-glow">
+      <h2 class="heading">Calculate Your Risk</h2>
+      <div class="row">
+        <label for="strick">Strick</label>
+        <div class="input-wrapper">
+          <input type="text" id="strick" />
+          <button class="copy-btn" id="copy-strick"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <label for="entryPrice">Entry Price</label>
+        <div class="input-wrapper">
+          <input type="number" id="entryPrice" />
+          <button class="copy-btn" id="copy-entryPrice"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div id="points-section">
+        <div class="row">
+          <label for="slPoints">SL Points</label>
+          <div class="input-wrapper"><input type="number" id="slPoints" /></div>
+        </div>
+        <div class="row">
+          <label for="targetPoints">Target Points</label>
+          <div class="input-wrapper"><input type="number" id="targetPoints" /></div>
+        </div>
+        <div class="row">
+          <label for="tslPoints">TSL Points</label>
+          <div class="input-wrapper"><input type="number" id="tslPoints" /></div>
+        </div>
+        <div class="row">
+          <label for="tslTriggerPoints">TSL Trigger Points</label>
+          <div class="input-wrapper"><input type="number" id="tslTriggerPoints" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="slPrice">SL Price</label>
+        <div class="input-wrapper">
+          <input type="text" id="slPrice" readonly tabindex="-1" />
+          <button class="copy-btn" id="copy-slPrice"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <label for="targetPrice">Target Price</label>
+        <div class="input-wrapper">
+          <input type="text" id="targetPrice" readonly tabindex="-1" />
+          <button class="copy-btn" id="copy-targetPrice"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <label for="tslPrice">TSL</label>
+        <div class="input-wrapper">
+          <input type="text" id="tslPrice" readonly tabindex="-1" />
+          <button class="copy-btn" id="copy-tslPrice"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <label for="tslTriggerPrice">TSL Trigger</label>
+        <div class="input-wrapper">
+          <input type="text" id="tslTriggerPrice" readonly tabindex="-1" />
+          <button class="copy-btn" id="copy-tslTriggerPrice"><i class="fas fa-copy"></i></button>
+        </div>
+      </div>
+      <div class="toggle-wrapper">
+        <button id="toggle-points" class="toggle-button">
+          <i id="toggle-icon" class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ABOUT ME SECTION -->
     <section class="card about" id="about">
       <h2>About Me</h2>
-      <p>
+        <p>
         I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
         <span class="read-more-text" onclick="toggleReadMore()">..read more</span>
       </p>
@@ -45,6 +135,7 @@
       </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section class="card contact">
       <h2>Follow Me</h2>
       <div class="social-icons">
@@ -59,83 +150,12 @@
     <p>All rights reserved by Abhishek Bunkar © 2025.</p>
   </footer>
 
-  <!-- Floating Contact Button -->
-  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry&body=Hello%20Abhishek,%20I%20would%20like%20to%20connect%20with%20you." aria-label="Email Abhishek">
+  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry" aria-label="Email Abhishek">
     <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Contact';" />
   </a>
 
-  <!-- Scroll to Top Button -->
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
-  <script>
-    // Always scroll to top on load (fix for mobile refresh)
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 50);
-    });
-
-    // Init Read More
-    function initReadMore() {
-      const moreContent = document.getElementById("moreContent");
-      const readMoreText = document.querySelector(".read-more-text");
-      const readLessText = document.querySelector(".read-less-text");
-      if (window.innerWidth <= 768) {
-        moreContent.style.display = "none";
-        readMoreText.style.display = "inline";
-        readLessText.style.display = "none";
-      } else {
-        moreContent.style.display = "block";
-        readMoreText.style.display = "none";
-        readLessText.style.display = "none";
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", initReadMore);
-
-    // Read More Toggle
-    function toggleReadMore() {
-      const moreContent = document.getElementById("moreContent");
-      const readMoreText = document.querySelector(".read-more-text");
-      const readLessText = document.querySelector(".read-less-text");
-      if (moreContent.style.display === "block") {
-        moreContent.style.display = "none";
-        readMoreText.style.display = "inline";
-        readLessText.style.display = "none";
-      } else {
-        moreContent.style.display = "block";
-        readMoreText.style.display = "none";
-        readLessText.style.display = "inline";
-      }
-    }
-
-    // Scroll To Top Button
-    const scrollBtn = document.getElementById("scrollToTop");
-    window.onscroll = function () {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    };
-    scrollBtn.onclick = function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    // Contact Button Logic
-    const contactLink = document.getElementById("contactLink");
-    const email = "aveebunkar.22@gmail.com";
-    const subject = "Trader Inquiry";
-    const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-
-    if (/android|iphone|ipad/i.test(navigator.userAgent)) {
-      contactLink.href = mailtoLink;
-    } else {
-      contactLink.href = gmailLink;
-      contactLink.target = "_blank";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
