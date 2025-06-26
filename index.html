@@ -68,7 +68,18 @@
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Initialize Read More state
+    // Fix scroll restoration (mobile refresh)
+    document.addEventListener("DOMContentLoaded", () => {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      if (window.innerWidth > 768) {
+        window.scrollTo(0, 0);
+      }
+      initReadMore();
+    });
+
+    // Initialize Read More
     function initReadMore() {
       const moreContent = document.getElementById("moreContent");
       const readMoreText = document.querySelector(".read-more-text");
@@ -79,16 +90,6 @@
         readLessText.style.display = "none";
       }
     }
-
-    // Page Load Scroll Fix (Mobile)
-    window.addEventListener('load', function () {
-      if (window.innerWidth > 768) {
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 100);
-      }
-      initReadMore();
-    });
 
     // Scroll To Top Button
     const scrollBtn = document.getElementById("scrollToTop");
