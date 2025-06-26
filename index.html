@@ -68,18 +68,18 @@
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
   <script>
-    // Fix scroll restoration (mobile refresh)
-    document.addEventListener("DOMContentLoaded", () => {
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-      if (window.innerWidth > 768) {
+    // Always scroll to top on load (fix for mobile refresh)
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
         window.scrollTo(0, 0);
-      }
-      initReadMore();
+      }, 50);
     });
 
-    // Initialize Read More
+    // Init Read More
     function initReadMore() {
       const moreContent = document.getElementById("moreContent");
       const readMoreText = document.querySelector(".read-more-text");
@@ -88,32 +88,14 @@
         moreContent.style.display = "none";
         readMoreText.style.display = "inline";
         readLessText.style.display = "none";
+      } else {
+        moreContent.style.display = "block";
+        readMoreText.style.display = "none";
+        readLessText.style.display = "none";
       }
     }
 
-    // Scroll To Top Button
-    const scrollBtn = document.getElementById("scrollToTop");
-    window.onscroll = function () {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    };
-    scrollBtn.onclick = function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    // Dynamic Email Link
-    const contactLink = document.getElementById("contactLink");
-    const email = "aveebunkar.22@gmail.com";
-    const subject = "Trader Inquiry";
-    const body = "Hello Abhishek, I would like to connect with you.";
-    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-
-    if (/android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-      contactLink.href = mailtoLink;
-    } else {
-      contactLink.href = gmailLink;
-      contactLink.target = "_blank";
-    }
+    document.addEventListener("DOMContentLoaded", initReadMore);
 
     // Read More Toggle
     function toggleReadMore() {
@@ -129,6 +111,30 @@
         readMoreText.style.display = "none";
         readLessText.style.display = "inline";
       }
+    }
+
+    // Scroll To Top Button
+    const scrollBtn = document.getElementById("scrollToTop");
+    window.onscroll = function () {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    scrollBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // Contact Button Logic
+    const contactLink = document.getElementById("contactLink");
+    const email = "aveebunkar.22@gmail.com";
+    const subject = "Trader Inquiry";
+    const body = "Hello Abhishek, I would like to connect with you.";
+    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+    if (/android|iphone|ipad/i.test(navigator.userAgent)) {
+      contactLink.href = mailtoLink;
+    } else {
+      contactLink.href = gmailLink;
+      contactLink.target = "_blank";
     }
   </script>
 </body>
