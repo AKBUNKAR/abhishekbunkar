@@ -48,7 +48,7 @@ main {
 .profile-text {
   text-align: center;
   opacity: 0;
-  animation: slideInRight 0.8s forwards ease-out;
+  animation: slideInFromRightToLeft 0.8s forwards ease-out;
   animation-delay: 0.5s;
 }
 
@@ -79,14 +79,14 @@ main {
   }
 }
 
-@keyframes slideInRight {
+@keyframes slideInFromRightToLeft {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(0);
   }
 }
 
@@ -379,4 +379,5 @@ footer {
   #moreContent {
     display: block;
   }
-}  
+}
+
