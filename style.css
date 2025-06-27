@@ -578,4 +578,74 @@ footer {
   }
 }
 
+// mobile view //
+/* Mobile Optimization for Trade Selector + Calculator in One View */
+@media (max-width: 768px) {
+  .container,
+  .card {
+    padding: 16px !important;
+    margin: 12px auto !important;
+    max-width: 95% !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  h2.heading {
+    font-size: 1.2rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 12px;
+    gap: 6px;
+  }
+
+  .row label {
+    font-size: 13px !important;
+    margin-bottom: 4px;
+  }
+
+  .input-wrapper input,
+  .copy-btn,
+  select#zoneSelect {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .suggestion-box {
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+
+  .toggle-wrapper {
+    justify-content: space-between !important;
+    margin-top: 16px !important;
+  }
+
+  .profile-image {
+    margin-bottom: 16px !important;
+  }
+
+  .big-photo {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .tagline {
+    font-size: 1rem !important;
+  }
+
+  /* Reduce vertical space on mobile */
+  .card.about, .card.contact {
+    animation-delay: 0s !important;
+  }
+
+  footer {
+    font-size: 0.8rem !important;
+    padding: 12px !important;
+  }
+}
+
+
 
