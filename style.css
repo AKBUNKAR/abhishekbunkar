@@ -189,9 +189,9 @@ main {
 /* Header */
 .header {
   display: flex;
-  flex-direction: column; /* Stack elements vertically in mobile */
-  align-items: center; /* Center everything horizontally */
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 20px;
   background: rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
@@ -201,7 +201,7 @@ main {
 }
 
 .profile-image {
-  margin: 0; /* Remove margin-right for mobile centering */
+  margin-right: 30px;
   opacity: 0;
   animation: slideInLeft 0.8s forwards ease-out;
   animation-delay: 0.3s;
@@ -221,7 +221,6 @@ main {
   object-fit: cover;
   border: 4px solid #38bdf8;
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-  margin-bottom: 10px; /* Add spacing below photo */
 }
 
 /* Animations */
@@ -254,18 +253,16 @@ main {
 }
 
 h1 {
-  font-size: clamp(1.5rem, 4vw, 1.8rem); /* Reduce font size for mobile */
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 800;
   color: #f1f5f9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  white-space: nowrap; /* Prevent name from wrapping */
 }
 
 .tagline {
-  font-size: clamp(0.9rem, 2vw, 1rem); /* Slightly smaller font size */
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 500;
   color: #38bdf8;
-  white-space: nowrap; /* Prevent tagline from wrapping */
 }
 
 /* Background Candles */
@@ -526,30 +523,37 @@ footer {
     margin-bottom: 16px !important;
   }
 
+  /* Header Fixes for Mobile */
   .header {
-    flex-direction: column; /* Ensure vertical stacking */
-    align-items: center; /* Center all items */
-    padding: 15px; /* Slightly reduce padding */
+    flex-direction: column !important; /* Stack vertically */
+    align-items: center !important; /* Center all items */
+    padding: 15px !important; /* Slightly reduce padding */
   }
 
   .profile-image {
-    margin: 0; /* Ensure no margin */
+    margin: 0 !important; /* Remove margin for centering */
+    margin-bottom: 10px !important; /* Add spacing below photo */
   }
 
   .profile-text {
-    width: 100%; /* Full width for text container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100% !important; /* Full width for text container */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .big-photo {
+    width: min(30vw, 120px) !important; /* Slightly smaller photo for mobile */
+    height: min(30vw, 120px) !important;
   }
 
   h1 {
-    font-size: clamp(1.2rem, 3.5vw, 1.5rem); /* Smaller font for mobile */
-    white-space: nowrap; /* Ensure single line */
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem) !important; /* Smaller font */
+    white-space: nowrap !important; /* Prevent name wrapping */
   }
 
   .tagline {
-    font-size: clamp(0.8rem, 2vw, 0.9rem); /* Smaller font for mobile */
-    white-space: nowrap; /* Ensure single line */
+    font-size: clamp(0.8rem, 2vw, 0.9rem) !important; /* Smaller font */
+    white-space: nowrap !important; /* Prevent tagline wrapping */
   }
 }
