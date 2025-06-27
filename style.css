@@ -172,9 +172,6 @@ h1 {
   box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
-.card.about { animation-delay: 0.7s; }
-.card.contact { animation-delay: 0.9s; }
-
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -194,20 +191,6 @@ h1 {
   line-height: 1.8;
   text-align: center;
   margin-bottom: 10px;
-}
-
-/* Read More / Less */
-.read-more-text,
-.read-less-text {
-  display: none;
-  color: #60a5fa;
-  cursor: pointer;
-  font-weight: 500;
-}
-.read-more-text:hover,
-.read-less-text:hover {
-  color: #93c5fd;
-  text-decoration: underline;
 }
 
 /* Social */
@@ -232,6 +215,7 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 200px;
   justify-content: center;
+  background: #2563eb;
 }
 
 .social-btn:hover {
@@ -260,10 +244,22 @@ footer {
   animation-delay: 1.1s;
 }
 
+.footer-link {
+  color: #60a5fa;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-link:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
 /* Scroll to Top Button */
 #scrollToTop {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   right: 20px;
   display: none;
   background: #38bdf8;
@@ -285,29 +281,60 @@ footer {
   transform: scale(1.1);
 }
 
-/* Floating Contact */
-.floating-contact {
+/* Tools Floating Button */
+#toolsButton {
   position: fixed;
-  bottom: 20px;
+  bottom: 70px; /* Positioned above scrollToTop button */
   right: 20px;
-  background: transparent;
+  display: block;
+  background: #2563eb;
+  color: white;
   border: none;
-  padding: 0;
+  border-radius: 50%;
+  padding: 12px 14px;
+  font-size: 1.2rem;
   cursor: pointer;
   z-index: 150;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
   opacity: 0;
   animation: fadeIn 0.5s forwards ease-out;
   animation-delay: 1.5s;
 }
-.floating-contact img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-.floating-contact:hover {
+
+#toolsButton:hover {
   transform: scale(1.1);
+}
+
+/* Tools Menu */
+.tools-menu {
+  position: fixed;
+  bottom: 120px; /* Positioned above the tools button */
+  right: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 150;
+}
+
+.tools-menu .menu-item {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.tools-menu .menu-item:hover {
+  background: #1d4ed8;
 }
 
 /* Global Styles (Original) */
@@ -446,13 +473,71 @@ select#zoneSelect {
   display: none;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
- perspective: center;
-  }
+/* Option Chain Container */
+.option-chain-container {
+  padding: 20px;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.option-chain-container iframe {
+  width: 100%;
+  flex: 1; /* Takes available space */
+  border: none;
+  border-radius: 8px;
+}
+
+/* Popup Styles */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Removed dark overlay */
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.popup .container {
+  max-width: 600px; /* Consistent with other popups */
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  position: fixed; /* Ensure it stays in place */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  animation: none; /* Remove animation to prevent sliding */
+  opacity: 1; /* Ensure immediate visibility */
+}
+
+/* Specific styles for About and Follow Me popups */
+#about-popup .container,
+#follow-me-popup .container {
+  max-width: 600px;
+  max-height: 70vh;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #38bdf8;
 }
 
 /* Responsive */
@@ -509,48 +594,90 @@ select#zoneSelect {
   /* Header for Mobile */
   .header {
     display: flex;
-    flex-direction: row !important; /* Maintain row layout like desktop */
-    align-items: center !important; /* Vertically center items */
-    justify-content: space-between !important; /* Photo left, text right */
-    padding: 10px 15px !important; /* Adjusted padding */
-    flex-wrap: nowrap !important; /* Prevent wrapping */
-    width: 100%; /* Full width */
-    max-width: 100%; /* Prevent overflow */
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 15px !important;
+    flex-wrap: nowrap !important;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
   .profile-image {
-    margin: 0 10px 0 10px !important; /* Balanced margins for left alignment */
-    flex: 0 0 auto !important; /* Prevent shrinking */
+    margin: 0 10px 0 10px !important;
+    flex: 0 0 auto !important;
     display: flex;
     align-items: center;
   }
 
   .profile-text {
-    flex: 1 !important; /* Take remaining space */
-    text-align: left !important; /* Align text left for right-side appearance */
+    flex: 1 !important;
+    text-align: left !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 0; /* Allow text to fit */
-    max-width: 60%; /* Limit text container width to prevent overflow */
+    min-width: 0;
+    max-width: 60%;
   }
 
   .big-photo {
-    width: 80px !important; /* Fixed size for mobile */
+    width: 80px !important;
     height: 80px !important;
     margin-bottom: 0 !important;
   }
 
   h1 {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important; /* Smaller font size */
-    white-space: nowrap !important; /* Prevent wrapping */
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+    white-space: nowrap !important;
     margin: 0 !important;
   }
 
   .tagline {
-    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important; /* Even smaller font size */
-    white-space: nowrap !important; /* Prevent wrapping */
-    margin: 2px 0 0 0 !important; /* Small top margin for spacing */
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important;
+    white-space: nowrap !important;
+    margin: 2px 0 0 0 !important;
+  }
+
+  /* Option Chain Container for Mobile */
+  .option-chain-container {
+    padding: 12px !important;
+    height: auto !important;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .option-chain-container iframe {
+    height: 400px !important;
+    flex: 1;
+  }
+
+  /* Tools Button and Menu for Mobile */
+  #toolsButton {
+    bottom: 60px;
+  }
+
+  .tools-menu {
+    bottom: 110px;
+  }
+
+  .tools-menu .menu-item {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Popup for Mobile */
+  .popup .container {
+    max-width: 95%;
+    max-height: 85vh;
+    padding: 15px;
+  }
+
+  #about-popup .container,
+  #follow-me-popup .container,
+  #calculator-popup .container {
+    max-width: 90%;
+    max-height: 75vh;
   }
 }
