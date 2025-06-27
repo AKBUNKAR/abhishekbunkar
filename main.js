@@ -133,15 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadValues();
 });
+
+// ✅ Scroll to top on page load to fix auto-scroll issue
 window.addEventListener("load", () => {
-  
- // Scroll to top on page load (prevents auto-scroll to About section)
-window.addEventListener('load', function () {
   setTimeout(() => {
     window.scrollTo(0, 0);
   }, 10);
+  document.activeElement?.blur();
 });
-// Prevent iOS auto-focus bug
-document.activeElement?.blur();
-
-
