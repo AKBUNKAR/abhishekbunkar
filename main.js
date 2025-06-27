@@ -1,17 +1,27 @@
-// ✅ Force scroll to top on reload (fix for mobile browsers)
+// Force scroll to top on reload (fix for mobile browsers)
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-window.addEventListener("pageshow", function () {
-  setTimeout(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, 0);
+
+// Ensure scroll to top on multiple events for mobile compatibility
+function forceScrollToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  document.activeElement.blur(); // Prevent focus on any element
+}
+
+// Handle multiple events for robust scroll-to-top
+window.addEventListener('pageshow', () => {
+  setTimeout(forceScrollToTop, 0);
 });
+document.addEventListener('DOMContentLoaded', forceScrollToTop);
+window.addEventListener('load', forceScrollToTop);
+
+// Remove hash from URL if present
 if (window.location.hash) {
   history.replaceState(null, null, ' ');
 }
 
-// ✅ Trade Selector Logic
+// Trade Selector Logic
 const suggestions = {
   "s riskey": "✅ Bullish setup + untouched S = TG likely<br>❌ Avoid if 1st candle touched or Max Gain hit<br>⚠️ Watch WTT/WTB",
   "s moderate": "⚠️ Risky zone<br>✅ Use only in stable market<br>❌ Avoid in shift or multiple touches",
@@ -30,7 +40,7 @@ document.getElementById("zoneSelect").addEventListener("change", function () {
   document.getElementById("suggestion").innerHTML = result;
 });
 
-// ✅ Calculator Logic
+// Calculator Logic
 document.addEventListener("DOMContentLoaded", () => {
   const entryPriceInput = document.getElementById("entryPrice");
   const slPointsInput = document.getElementById("slPoints");
