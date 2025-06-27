@@ -93,14 +93,14 @@ h1 {
   font-weight: 800;
   color: #f1f5f9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  white-space: nowrap; /* Prevent name from wrapping */
+  white-space: nowrap;
 }
 
 .tagline {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 500;
   color: #38bdf8;
-  white-space: nowrap; /* Prevent tagline from wrapping */
+  white-space: nowrap;
 }
 
 /* Background Candles */
@@ -153,11 +153,10 @@ h1 {
 
 /* Card Style */
 .card {
-  background: rgba(255,  ascended: 0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 40px;
-  margin: 20px auto;
   margin: 20px auto;
   max-width: 800px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -452,6 +451,7 @@ select#zoneSelect {
   to {
     opacity: 1;
     transform: translateY(0);
+ perspective: center;
   }
 }
 
@@ -509,18 +509,18 @@ select#zoneSelect {
   /* Header for Mobile */
   .header {
     display: flex;
-    flex-direction: row !important; /* Keep row layout like desktop */
+    flex-direction: row !important; /* Maintain row layout like desktop */
     align-items: center !important; /* Vertically center items */
-    justify-content: flex-start !important; /* Start from left */
-    padding: 10px !important; /* Reduced padding for tighter fit */
+    justify-content: space-between !important; /* Photo left, text right */
+    padding: 10px 15px !important; /* Adjusted padding */
     flex-wrap: nowrap !important; /* Prevent wrapping */
-    width: 100%; /* Ensure full width */
+    width: 100%; /* Full width */
     max-width: 100%; /* Prevent overflow */
-    box-sizing: border-box; /* Include padding in width */
+    box-sizing: border-box;
   }
 
   .profile-image {
-    margin: 0 10px 0 5px !important; /* Small left margin, reduced right margin */
+    margin: 0 10px 0 10px !important; /* Balanced margins for left alignment */
     flex: 0 0 auto !important; /* Prevent shrinking */
     display: flex;
     align-items: center;
@@ -528,32 +528,29 @@ select#zoneSelect {
 
   .profile-text {
     flex: 1 !important; /* Take remaining space */
-    text-align: left !important; /* Align text to left */
+    text-align: left !important; /* Align text left for right-side appearance */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 0; /* Allow text to fit in remaining space */
+    min-width: 0; /* Allow text to fit */
+    max-width: 60%; /* Limit text container width to prevent overflow */
   }
 
   .big-photo {
-    width: 80px !important; /* Fixed smaller size for mobile */
+    width: 80px !important; /* Fixed size for mobile */
     height: 80px !important;
-    margin-bottom: 0 !important; /* No extra margin */
+    margin-bottom: 0 !important;
   }
 
   h1 {
-    font-size: clamp(1rem, 3vw, 1.2rem) !important; /* Smaller font size */
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important; /* Smaller font size */
     white-space: nowrap !important; /* Prevent wrapping */
-    margin: 0 !important; /* Remove margins */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    margin: 0 !important;
   }
 
   .tagline {
-    font-size: clamp(0.7rem, 2vw, 0.8rem) !important; /* Smaller font size */
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important; /* Even smaller font size */
     white-space: nowrap !important; /* Prevent wrapping */
-    margin: 0 !important; /* Remove margins */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    margin: 2px 0 0 0 !important; /* Small top margin for spacing */
   }
 }
