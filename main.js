@@ -1,3 +1,10 @@
+// ✅ Prevent mobile auto scroll on reload
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+// Then your rest of the script below...
 const suggestions = {
   "s riskey": "✅ Bullish setup + untouched S = TG likely<br>❌ Avoid if 1st candle touched or Max Gain hit<br>⚠️ Watch WTT/WTB",
   "s moderate": "⚠️ Risky zone<br>✅ Use only in stable market<br>❌ Avoid in shift or multiple touches",
