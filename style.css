@@ -162,7 +162,6 @@ select#zoneSelect {
   }
 }
 
-//web page// 
 /* Global Styles */
 * {
   margin: 0;
@@ -190,9 +189,9 @@ main {
 /* Header */
 .header {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Stack elements vertically in mobile */
+  align-items: center; /* Center everything horizontally */
   justify-content: center;
-  flex-wrap: wrap;
   padding: 20px;
   background: rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
@@ -202,7 +201,7 @@ main {
 }
 
 .profile-image {
-  margin-right: 30px;
+  margin: 0; /* Remove margin-right for mobile centering */
   opacity: 0;
   animation: slideInLeft 0.8s forwards ease-out;
   animation-delay: 0.3s;
@@ -222,6 +221,7 @@ main {
   object-fit: cover;
   border: 4px solid #38bdf8;
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  margin-bottom: 10px; /* Add spacing below photo */
 }
 
 /* Animations */
@@ -254,16 +254,18 @@ main {
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 4vw, 1.8rem); /* Reduce font size for mobile */
   font-weight: 800;
   color: #f1f5f9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  white-space: nowrap; /* Prevent name from wrapping */
 }
 
 .tagline {
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-size: clamp(0.9rem, 2vw, 1rem); /* Slightly smaller font size */
   font-weight: 500;
   color: #38bdf8;
+  white-space: nowrap; /* Prevent tagline from wrapping */
 }
 
 /* Background Candles */
@@ -522,5 +524,32 @@ footer {
   h2.heading {
     font-size: 1.2rem !important;
     margin-bottom: 16px !important;
+  }
+
+  .header {
+    flex-direction: column; /* Ensure vertical stacking */
+    align-items: center; /* Center all items */
+    padding: 15px; /* Slightly reduce padding */
+  }
+
+  .profile-image {
+    margin: 0; /* Ensure no margin */
+  }
+
+  .profile-text {
+    width: 100%; /* Full width for text container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem); /* Smaller font for mobile */
+    white-space: nowrap; /* Ensure single line */
+  }
+
+  .tagline {
+    font-size: clamp(0.8rem, 2vw, 0.9rem); /* Smaller font for mobile */
+    white-space: nowrap; /* Ensure single line */
   }
 }
