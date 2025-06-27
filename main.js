@@ -1,10 +1,14 @@
-// ✅ Prevent mobile auto scroll on reload
+// ✅ Force scroll to top on reload (fix for mobile browsers)
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+window.addEventListener("pageshow", function () {
+  setTimeout(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, 0);
+});
 
-// Then your rest of the script below...
+// ✅ Trade Selector Logic
 const suggestions = {
   "s riskey": "✅ Bullish setup + untouched S = TG likely<br>❌ Avoid if 1st candle touched or Max Gain hit<br>⚠️ Watch WTT/WTB",
   "s moderate": "⚠️ Risky zone<br>✅ Use only in stable market<br>❌ Avoid in shift or multiple touches",
@@ -23,6 +27,7 @@ document.getElementById("zoneSelect").addEventListener("change", function () {
   document.getElementById("suggestion").innerHTML = result;
 });
 
+// ✅ Calculator Logic
 document.addEventListener("DOMContentLoaded", () => {
   const entryPriceInput = document.getElementById("entryPrice");
   const slPointsInput = document.getElementById("slPoints");
@@ -129,8 +134,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadValues();
 });
-
-// ✅ Fix: Always scroll to top on reload (prevents auto-scroll to About section on mobile)
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
