@@ -451,6 +451,7 @@ select#zoneSelect {
   to {
     opacity: 1;
     transform: translateY(0);
+ perspective: center;
   }
 }
 
@@ -519,7 +520,7 @@ select#zoneSelect {
   }
 
   .profile-image {
-    margin: 0 15px 0 10px !important; /* Adjusted margins for left alignment */
+    margin: 0 10px 0 10px !important; /* Balanced margins for left alignment */
     flex: 0 0 auto !important; /* Prevent shrinking */
     display: flex;
     align-items: center;
@@ -527,12 +528,12 @@ select#zoneSelect {
 
   .profile-text {
     flex: 1 !important; /* Take remaining space */
-    text-align: right !important; /* Align text to right */
+    text-align: left !important; /* Align text left for right-side appearance */
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 0; /* Allow text to fit */
-    padding-right: 10px; /* Add padding to push text right */
+    max-width: 60%; /* Limit text container width to prevent overflow */
   }
 
   .big-photo {
@@ -548,10 +549,8 @@ select#zoneSelect {
   }
 
   .tagline {
-    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important; /* Smaller font size */
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important; /* Even smaller font size */
     white-space: nowrap !important; /* Prevent wrapping */
     margin: 2px 0 0 0 !important; /* Small top margin for spacing */
-    overflow: visible !important; /* Ensure full text is visible */
-    text-overflow: clip !important; /* Remove ellipsis */
   }
 }
