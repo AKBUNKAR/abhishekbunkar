@@ -581,6 +581,12 @@ footer {
 // mobile view //
 /* Mobile Optimization for Trade Selector + Calculator in One View */
 @media (max-width: 768px) {
+  html, body {
+    scroll-behavior: auto !important;
+    overflow-y: auto;
+    padding-top: 0 !important;
+  }
+
   .container,
   .card {
     padding: 16px !important;
@@ -636,7 +642,6 @@ footer {
     font-size: 1rem !important;
   }
 
-  /* Reduce vertical space on mobile */
   .card.about, .card.contact {
     animation-delay: 0s !important;
   }
@@ -646,6 +651,7 @@ footer {
     padding: 12px !important;
   }
 }
+
 
 
 
