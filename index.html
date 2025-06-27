@@ -32,130 +32,152 @@
       <div class="candle-bar red"></div>
     </div>
 
-    <!-- Trade Zone Analyzer -->
-    <div class="container hover-glow">
-      <h2 class="heading">Trade Selector</h2>
-      <select id="zoneSelect">
-        <option value="">-- Select Trade Zone --</option>
-        <option>S RISKEY</option>
-        <option>S MODERATE</option>
-        <option>R RISKEY</option>
-        <option>R MODERATE</option>
-        <option>9TH SCENARIO</option>
-        <option>8TH SCENARIO</option>
-        <option>BULL RUN</option>
-        <option>BLOOD BATH</option>
-        <option>NO TRADE</option>
-      </select>
-      <div id="suggestion" class="suggestion-box"></div>
+    <!-- Option Chain Section -->
+    <div class="container hover-glow option-chain-container">
+      <h2 class="heading">Option Chain</h2>
+      <iframe src="https://nseoptionchain.ltpcalculator.com/detailed-optain-chain?expiry=03-07-2025&lot=75" width="100%" height="100vh" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Extension Calculator UI -->
-    <div class="container hover-glow">
-      <h2 class="heading">Calculate Your Risk</h2>
-      <div class="row">
-        <label for="strick">Strick</label>
-        <div class="input-wrapper">
-          <input type="text" id="strick" />
-          <button class="copy-btn" id="copy-strick"><i class="fas fa-copy"></i></button>
-        </div>
-      </div>
-      <div class="row">
-        <label for="entryPrice">Entry Price</label>
-        <div class="input-wrapper">
-          <input type="number" id="entryPrice" />
-          <button class="copy-btn" id="copy-entryPrice"><i class="fas fa-copy"></i></button>
-        </div>
-      </div>
-      <div id="points-section">
-        <div class="row">
-          <label for="slPoints">SL Points</label>
-          <div class="input-wrapper"><input type="number" id="slPoints" /></div>
-        </div>
-        <div class="row">
-          <label for="targetPoints">Target Points</label>
-          <div class="input-wrapper"><input type="number" id="targetPoints" /></div>
-        </div>
-        <div class="row">
-          <label for="tslPoints">TSL Points</label>
-          <div class="input-wrapper"><input type="number" id="tslPoints" /></div>
-        </div>
-        <div class="row">
-          <label for="tslTriggerPoints">TSL Trigger Points</label>
-          <div class="input-wrapper"><input type="number" id="tslTriggerPoints" /></div>
-        </div>
-      </div>
-      <div class="row">
-        <label for="slPrice">SL Price</label>
-        <div class="input-wrapper">
-          <input type="text" id="slPrice" readonly tabindex="-1" />
-          <button class="copy-btn" id="copy-slPrice"><i class="fas fa-copy"></i></button>
-        </div>
-      </div>
-      <div class="row">
-        <label for="targetPrice">Target Price</label>
-        <div class="input-wrapper">
-          <input type="text" id="targetPrice" readonly tabindex="-1" />
-          <button class="copy-btn" id="copy-targetPrice"><i class="fas fa-copy"></i></button>
-        </div>
-      </div>
-      <div class="row">
-        <label for="tslPrice">TSL</label>
-        <div class="input-wrapper">
-          <input type="text" id="tslPrice" readonly tabindex="-1" />
-          <button class="copy-btn" id="copy-tslPrice"><i class="fas fa-copy"></i></button>
-        </div>
-      </div>
-      <div class="row">
-        <label for="tslTriggerPrice">TSL Trigger</label>
-        <div class="input-wrapper">
-          <input type="text" id="tslTriggerPrice" readonly tabindex="-1" />
-          <button class="copy-btn" id="copy-tslTriggerPrice"><i class="fas fa-copy"></i></button>
-        </div>
-      </div>
-      <div class="toggle-wrapper">
-        <button id="toggle-points" class="toggle-button">
-          <i id="toggle-icon" class="fas fa-arrow-down"></i>
-        </button>
+    <!-- Trade Selector Popup -->
+    <div id="trade-selector-popup" class="popup">
+      <div class="container hover-glow">
+        <span class="close-btn" onclick="hidePopup('trade-selector-popup')">×</span>
+        <h2 class="heading">Trade Selector</h2>
+        <select id="zoneSelect">
+          <option value="">-- Select Trade Zone --</option>
+          <option>S RISKEY</option>
+          <option>S MODERATE</option>
+          <option>R RISKEY</option>
+          <option>R MODERATE</option>
+          <option>9TH SCENARIO</option>
+          <option>8TH SCENARIO</option>
+          <option>BULL RUN</option>
+          <option>BLOOD BATH</option>
+          <option>NO TRADE</option>
+        </select>
+        <div id="suggestion" class="suggestion-box"></div>
       </div>
     </div>
 
-    <!-- ABOUT ME SECTION -->
-    <section class="card about" id="about">
-      <h2>About Me</h2>
+    <!-- Calculator Popup -->
+    <div id="calculator-popup" class="popup">
+      <div class="container hover-glow">
+        <span class="close-btn" onclick="hidePopup('calculator-popup')">×</span>
+        <h2 class="heading">Calculate Your Risk</h2>
+        <div class="row">
+          <label for="strick">Strick</label>
+          <div class="input-wrapper">
+            <input type="text" id="strick" />
+            <button class="copy-btn" id="copy-strick"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="entryPrice">Entry Price</label>
+          <div class="input-wrapper">
+            <input type="number" id="entryPrice" />
+            <button class="copy-btn" id="copy-entryPrice"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+        <div id="points-section">
+          <div class="row">
+            <label for="slPoints">SL Points</label>
+            <div class="input-wrapper"><input type="number" id="slPoints" /></div>
+          </div>
+          <div class="row">
+            <label for="targetPoints">Target Points</label>
+            <div class="input-wrapper"><input type="number" id="targetPoints" /></div>
+          </div>
+          <div class="row">
+            <label for="tslPoints">TSL Points</label>
+            <div class="input-wrapper"><input type="number" id="tslPoints" /></div>
+          </div>
+          <div class="row">
+            <label for="tslTriggerPoints">TSL Trigger Points</label>
+            <div class="input-wrapper"><input type="number" id="tslTriggerPoints" /></div>
+          </div>
+        </div>
+        <div class="row">
+          <label for="slPrice">SL Price</label>
+          <div class="input-wrapper">
+            <input type="text" id="slPrice" readonly tabindex="-1" />
+            <button class="copy-btn" id="copy-slPrice"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="targetPrice">Target Price</label>
+          <div class="input-wrapper">
+            <input type="text" id="targetPrice" readonly tabindex="-1" />
+            <button class="copy-btn" id="copy-targetPrice"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="tslPrice">TSL</label>
+          <div class="input-wrapper">
+            <input type="text" id="tslPrice" readonly tabindex="-1" />
+            <button class="copy-btn" id="copy-tslPrice"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="tslTriggerPrice">TSL Trigger</label>
+          <div class="input-wrapper">
+            <input type="text" id="tslTriggerPrice" readonly tabindex="-1" />
+            <button class="copy-btn" id="copy-tslTriggerPrice"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="toggle-wrapper">
+          <button id="toggle-points" class="toggle-button">
+            <i id="toggle-icon" class="fas fa-arrow-down"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Me Popup -->
+    <div id="about-popup" class="popup">
+      <div class="container hover-glow">
+        <span class="close-btn" onclick="hidePopup('about-popup')">×</span>
+        <h2 class="heading">About Me</h2>
         <p>
-        I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
-        <span class="read-more-text" onclick="toggleReadMore()">..read more</span>
-      </p>
-      <div id="moreContent">
+          I am Abhishek Bunkar, a dedicated full-time option trader specializing in the Indian stock market. With a keen focus on option chain analysis, I craft precise trading strategies to navigate the complexities of the market. My approach blends technical expertise with a deep understanding of market trends, ensuring consistent growth.
+        </p>
         <p>
           Beyond trading, I am passionate about sharing knowledge and helping others succeed in their trading journey. Known for my disciplined mindset and innovative techniques, I bring a fresh perspective to the trading community. Let’s explore the markets together and achieve success.
-          <span class="read-less-text" onclick="toggleReadMore()">..read less</span>
         </p>
       </div>
-    </section>
+    </div>
 
-    <!-- CONTACT SECTION -->
-    <section class="card contact">
-      <h2>Follow Me</h2>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer">YouTube</a>
+    <!-- Follow Me Popup -->
+    <div id="follow-me-popup" class="popup">
+      <div class="container hover-glow">
+        <span class="close-btn" onclick="hidePopup('follow-me-popup')">×</span>
+        <h2 class="heading">Follow Me</h2>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/__immavee__/" target="_blank" class="social-btn insta" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100030229876276" target="_blank" class="social-btn fb" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@Abhishekbunkar-22" target="_blank" class="social-btn yt" rel="noopener noreferrer">YouTube</a>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Floating Tools Button and Menu -->
+    <button id="toolsButton" title="Open Tools Menu">🛠️</button>
+    <div id="toolsMenu" class="tools-menu">
+      <button class="menu-item" onclick="showPopup('trade-selector-popup')">Trade Selector</button>
+      <button class="menu-item" onclick="showPopup('calculator-popup')">Risk Calculator</button>
+    </div>
   </main>
 
   <footer>
-    <p>All rights reserved by Abhishek Bunkar © 2025.</p>
+    <p>
+      All rights reserved by Abhishek Bunkar © 2025. | 
+      <span class="footer-link" onclick="showPopup('about-popup')">About Me</span> | 
+      <span class="footer-link" onclick="showPopup('follow-me-popup')">Follow Me</span> | 
+      <a href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry" class="footer-link" aria-label="Email Abhishek">Support</a>
+    </p>
   </footer>
-
-  <a id="contactLink" class="floating-contact" href="mailto:aveebunkar.22@gmail.com?subject=Trader%20Inquiry" aria-label="Email Abhishek">
-    <img src="https://i.ibb.co/KzSzLQLY/Chat-GPT-Image-Jun-24-2025-02-39-09-PM.png" alt="Contact Me" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Contact';" />
-  </a>
 
   <button id="scrollToTop" title="Scroll to top">↑</button>
 
- <script src="main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
