@@ -1,4 +1,5 @@
-// TRADE SELECTOR LOGIC
+// script.js
+
 const suggestions = {
   "s riskey": "✅ Bullish setup + untouched S = TG likely<br>❌ Avoid if 1st candle touched or Max Gain hit<br>⚠️ Watch WTT/WTB",
   "s moderate": "⚠️ Risky zone<br>✅ Use only in stable market<br>❌ Avoid in shift or multiple touches",
@@ -11,19 +12,17 @@ const suggestions = {
   "no trade": "❌ No trade recommended"
 };
 
+document.getElementById("zoneSelect").addEventListener("change", function () {
+  const value = this.value.toLowerCase();
+  const result = suggestions[value] || "ℹ️ Select a valid trade zone";
+  document.getElementById("suggestion").innerHTML = result;
+});
+
+// popup.js (calculator logic FIXED)
+
+// popup.js (dark mode toggle removed, strick input auto-uppercase)
+
 document.addEventListener("DOMContentLoaded", () => {
-  const zoneSelect = document.getElementById("zoneSelect");
-  const suggestionBox = document.getElementById("suggestion");
-
-  if (zoneSelect) {
-    zoneSelect.addEventListener("change", function () {
-      const value = this.value.toLowerCase();
-      const result = suggestions[value] || "ℹ️ Select a valid trade zone";
-      suggestionBox.innerHTML = result;
-    });
-  }
-
-  // CALCULATOR LOGIC
   const entryPriceInput = document.getElementById("entryPrice");
   const slPointsInput = document.getElementById("slPoints");
   const targetPointsInput = document.getElementById("targetPoints");
@@ -96,21 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("input", calculate);
   });
 
-  if (togglePointsButton) {
-    togglePointsButton.addEventListener("click", () => {
-      const isHidden = pointsSection.classList.contains("hidden");
-      pointsSection.classList.toggle("hidden", !isHidden);
-      toggleIcon.classList.toggle("fa-arrow-down", isHidden);
-      toggleIcon.classList.toggle("fa-arrow-up", !isHidden);
-      localStorage.setItem("pointsHidden", !isHidden);
-    });
-  }
+  togglePointsButton.addEventListener("click", () => {
+    const isHidden = pointsSection.classList.contains("hidden");
+    pointsSection.classList.toggle("hidden", !isHidden);
+    toggleIcon.classList.toggle("fa-arrow-down", isHidden);
+    toggleIcon.classList.toggle("fa-arrow-up", !isHidden);
+    localStorage.setItem("pointsHidden", !isHidden);
+  });
 
-  if (strickInput) {
-    strickInput.addEventListener("input", () => {
-      strickInput.value = strickInput.value.toUpperCase();
-    });
-  }
+  strickInput.addEventListener("input", () => {
+    strickInput.value = strickInput.value.toUpperCase();
+  });
 
   function copyToClipboard(inputId) {
     const input = document.getElementById(inputId);
@@ -132,12 +127,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   loadValues();
-});
-
-// ✅ Scroll to top on page load to fix auto-scroll issue
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 10);
-  document.activeElement?.blur();
 });
