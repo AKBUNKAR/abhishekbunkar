@@ -451,7 +451,6 @@ select#zoneSelect {
   to {
     opacity: 1;
     transform: translateY(0);
- perspective: center;
   }
 }
 
@@ -509,7 +508,7 @@ select#zoneSelect {
   /* Header for Mobile */
   .header {
     display: flex;
-    flex-direction: row !important; /* Maintain row layout like desktop */
+    flex-direction: row !important; /* Maintain row layout */
     align-items: center !important; /* Vertically center items */
     justify-content: space-between !important; /* Photo left, text right */
     padding: 10px 15px !important; /* Adjusted padding */
@@ -520,7 +519,7 @@ select#zoneSelect {
   }
 
   .profile-image {
-    margin: 0 10px 0 10px !important; /* Balanced margins for left alignment */
+    margin: 0 15px 0 0 !important; /* Right margin for spacing */
     flex: 0 0 auto !important; /* Prevent shrinking */
     display: flex;
     align-items: center;
@@ -528,12 +527,12 @@ select#zoneSelect {
 
   .profile-text {
     flex: 1 !important; /* Take remaining space */
-    text-align: left !important; /* Align text left for right-side appearance */
+    text-align: right !important; /* Explicitly right-align text */
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 0; /* Allow text to fit */
-    max-width: 60%; /* Limit text container width to prevent overflow */
+    max-width: 70%; /* Limit text width to prevent overflow */
   }
 
   .big-photo {
@@ -549,8 +548,9 @@ select#zoneSelect {
   }
 
   .tagline {
-    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important; /* Even smaller font size */
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem) !important; /* Smaller font size */
     white-space: nowrap !important; /* Prevent wrapping */
-    margin: 2px 0 0 0 !important; /* Small top margin for spacing */
+    margin: 2px 0 0 0 !important; /* Small top margin */
+    overflow: visible !important; /* Ensure full text is visible */
   }
 }
