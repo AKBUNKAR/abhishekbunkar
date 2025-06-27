@@ -7,6 +7,9 @@ window.addEventListener("pageshow", function () {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, 0);
 });
+if (window.location.hash) {
+  history.replaceState(null, null, ' ');
+}
 
 // ✅ Trade Selector Logic
 const suggestions = {
