@@ -147,3 +147,102 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadValues();
 });
+// Popup functionality
+ function showPopup(popupId) {
+  console.log('Attempting to show popup:', popupId);
+  const popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'flex';
+    console.log('Popup displayed:', popupId);
+    makePopupDraggable(popupId); // Make popup draggable after showing
+  } else {
+    console.error('Popup element not found:', popupId);
+  }
+}
+
+function hidePopup(popupId) {
+  console.log('Attempting to hide popup:', popupId);
+  const popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'none';
+    console.log('Popup hidden:', popupId);
+  } else {
+    console.error('Popup element not found:', popupId);
+  }
+}
+
+function makePopupDraggable(popupId) {
+  const popup = document.getElementById(popupId);
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  if (!popup) {
+    console.error("Popup not found:", popupId);
+    return;
+  }
+
+  popup.style.position = 'absolute';
+  popup.style.cursor = 'move';
+
+  popup.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    offsetX = e.clientX - popup.getBoundingClientRect().left;
+    offsetY = e.clientY - popup.getBoundingClientRect().top;
+    popup.style.zIndex = 1000;
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (isDragging) {
+      popup.style.left = e.clientX - offsetX + 'px';
+      popup.style.top = e.clientY - offsetY + 'px';
+    }
+  });
+
+  document.addEventListener('mouseup', function () {
+    isDragging = false;
+  });
+}
+
+//popup floating buttan//
+document.addEventListener('DOMContentLoaded', () => {
+  const toolsButton = document.getElementById('toolsButton');
+  const toolsMenu = document.getElementById('toolsMenu');
+  const scrollToTop = document.getElementById('scrollToTop');
+
+  // Toggle tools menu visibility
+  toolsButton.addEventListener('click', () => {
+    const isMenuVisible = toolsMenu.style.display === 'flex';
+    toolsMenu.style.display = isMenuVisible ? 'none' : 'flex';
+  });
+
+  // Close tools menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!toolsButton.contains(e.target) && !toolsMenu.contains(e.target)) {
+      toolsMenu.style.display = 'none';
+    }
+  });
+
+  // Show popup function
+  window.showPopup = (popupId) => {
+    document.querySelectorAll('.popup').forEach(popup => {
+      popup.style.display = 'none';
+    });
+    document.getElementById(popupId).style.display = 'flex';
+    toolsMenu.style.display = 'none'; // Close menu after selecting an option
+  };
+
+  // Hide popup function
+  window.hidePopup = (popupId) => {
+    document.getElementById(popupId).style.display = 'none';
+  };
+
+  // Scroll to top functionality
+  window.addEventListener('scroll', () => {
+    scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+  });
+
+  scrollToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
