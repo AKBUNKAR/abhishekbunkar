@@ -1,5 +1,3 @@
-// script.js
-
 const suggestions = {
   "s riskey": "✅ Bullish setup + untouched S = TG likely<br>❌ Avoid if 1st candle touched or Max Gain hit<br>⚠️ Watch WTT/WTB",
   "s moderate": "⚠️ Risky zone<br>✅ Use only in stable market<br>❌ Avoid in shift or multiple touches",
@@ -17,10 +15,6 @@ document.getElementById("zoneSelect").addEventListener("change", function () {
   const result = suggestions[value] || "ℹ️ Select a valid trade zone";
   document.getElementById("suggestion").innerHTML = result;
 });
-
-// popup.js (calculator logic FIXED)
-
-// popup.js (dark mode toggle removed, strick input auto-uppercase)
 
 document.addEventListener("DOMContentLoaded", () => {
   const entryPriceInput = document.getElementById("entryPrice");
@@ -128,3 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadValues();
 });
+
+// ✅ Fix: Always scroll to top on reload (prevents auto-scroll to About section on mobile)
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
