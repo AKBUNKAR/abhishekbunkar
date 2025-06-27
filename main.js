@@ -141,5 +141,7 @@ window.addEventListener('load', function () {
     window.scrollTo(0, 0);
   }, 10);
 });
+// Prevent iOS auto-focus bug
+document.activeElement?.blur();
 
 
