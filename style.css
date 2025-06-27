@@ -153,10 +153,11 @@ h1 {
 
 /* Card Style */
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,  ascended: 0.05);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 40px;
+  margin: 20px auto;
   margin: 20px auto;
   max-width: 800px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -165,7 +166,7 @@ h1 {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s forwards ease-out;
-  transition: box overlaid: 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -508,42 +509,51 @@ select#zoneSelect {
   /* Header for Mobile */
   .header {
     display: flex;
-    flex-direction: row; /* Keep row layout like desktop */
-    align-items: center; /* Vertically center items */
-    justify-content: space-between; /* Photo left, text right */
-    padding: 15px;
-    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-direction: row !important; /* Keep row layout like desktop */
+    align-items: center !important; /* Vertically center items */
+    justify-content: flex-start !important; /* Start from left */
+    padding: 10px !important; /* Reduced padding for tighter fit */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
+    width: 100%; /* Ensure full width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width */
   }
 
   .profile-image {
-    margin-right: 15px; /* Reduced margin for mobile */
-    margin-left: 10px; /* Ensure left alignment */
-    flex: 0 0 auto; /* Prevent shrinking */
+    margin: 0 10px 0 5px !important; /* Small left margin, reduced right margin */
+    flex: 0 0 auto !important; /* Prevent shrinking */
+    display: flex;
+    align-items: center;
   }
 
   .profile-text {
-    flex: 1; /* Take remaining space */
-    text-align: left; /* Align text to left for better readability */
+    flex: 1 !important; /* Take remaining space */
+    text-align: left !important; /* Align text to left */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 0; /* Allow text to fit in remaining space */
   }
 
   .big-photo {
-    width: min(25vw, 100px); /* Smaller photo for mobile */
-    height: min(25vw, 100px);
-    margin-bottom: 0; /* Remove bottom margin */
+    width: 80px !important; /* Fixed smaller size for mobile */
+    height: 80px !important;
+    margin-bottom: 0 !important; /* No extra margin */
   }
 
   h1 {
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem); /* Smaller font for mobile */
-    white-space: nowrap; /* Prevent wrapping */
-    margin: 0; /* Remove extra margins */
+    font-size: clamp(1rem, 3vw, 1.2rem) !important; /* Smaller font size */
+    white-space: nowrap !important; /* Prevent wrapping */
+    margin: 0 !important; /* Remove margins */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
   }
 
   .tagline {
-    font-size: clamp(0.8rem, 2vw, 0.9rem); /* Smaller font for mobile */
-    white-space: nowrap; /* Prevent wrapping */
-    margin: 0; /* Remove extra margins */
+    font-size: clamp(0.7rem, 2vw, 0.8rem) !important; /* Smaller font size */
+    white-space: nowrap !important; /* Prevent wrapping */
+    margin: 0 !important; /* Remove margins */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
   }
 }
